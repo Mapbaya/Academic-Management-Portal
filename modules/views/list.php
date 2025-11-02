@@ -1,9 +1,9 @@
 <?php
 /**
- * Vue of the list des modules
+ * View of the list of modules
  * 
  * Displays the list of all modules with possibility of add, edit and delete.
- * Les actions utilisent des icônes Font Awesome et des tooltips pour une meilleure UX.
+ * Actions use Font Awesome icons and tooltips for better UX.
  * 
  * @package TD3
  * @subpackage Views

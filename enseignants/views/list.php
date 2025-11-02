@@ -1,18 +1,21 @@
 <?php
 /**
- * Vue of the list of teachers
+ * View of the list of teachers
+ * 
  * Displays the list of teachers with filters and actions
  * 
  * @package TD3
- * @author Votre nom
- * @since 2024
+ * @subpackage Views
+ * @author Kime Marwa
+ * @since November 2, 2025
+ * @version 1.0
  */
 declare(strict_types=1);
 require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 ?>
 
 <div class="w3-container">
-    <h2 class="w3-center">Liste of teachers</h2>
+    <h2 class="w3-center">List of Teachers</h2>
 
     <!-- Barre de recherche / filtres -->
     <form method="get" action="index.php" class="w3-bar w3-margin-bottom">
