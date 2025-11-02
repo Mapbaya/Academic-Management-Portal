@@ -1,9 +1,9 @@
 <?php
 /**
- * Controller forajout d'un enseignant
+ * Controller forajout for a enseignant
  * 
  * Manages the creation of a new enseignant. Validates form data,
- * creates l'enseignant ainsi que associated user, and redirects to the list
+ * creates l'enseignant ainsi que the associated user, and redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         ]);
         
         /**
-         * Creates l'enseignant et associated user
+         * Creates l'enseignant et the associated user
          * 
          * @param string $username Username
          * @param string $password Mot de passe (sera hashé en MD5)
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         $ens->create($_POST['username'], $_POST['password']);
         
         /**
-         * Redirige vers la liste des enseignants après création réussie
+         * Redirige vers the list of teachers après création réussie
          */
         header("Location: index.php?element=enseignants&action=list");
         exit;

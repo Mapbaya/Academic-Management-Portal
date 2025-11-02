@@ -1,22 +1,22 @@
 <?php
 /**
- * Modification controller d'un module
+ * Edit controller for a module
  * 
- * Manages la modification d'un module existant. Récupère le module par son ID,
- * met à jour ses informations and redirects to the list des modules.
+ * Manages the modification for a module existing. Retrieves the module by its ID,
+ * updates its information and redirects to the list des modules.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/module.class.php';
 
 /**
- * Retrieval de l'identifiant du module à modifier
+ * Retrieval of identifier du module à modifier
  * 
- * @var int|null Identifiant unique du module
+ * @var int|null Unique identifier du module
  */
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -29,7 +29,7 @@ if (!$mod) {
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    $_SESSION['mesgs']['errors'][] = 'Module introuvable.';
+    $_SESSION['mesgs']['errors'][] = 'Module not found.';
     header('Location: index.php?element=modules&action=list');
     exit;
 }
@@ -40,13 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mod->name = trim($_POST['name'] ?? '');
         $mod->coef = !empty($_POST['coef']) ? (float)$_POST['coef'] : 1.0;
         
-        // Validation des données
+        // Data validation
         if (empty($mod->num_module) || empty($mod->name)) {
-            throw new Exception('Le numéro et le nom du module sont obligatoires.');
+            throw new Exception('Number and name du module are required.');
         }
         
         if ($mod->coef < 0) {
-            throw new Exception('Le coefficient ne peut pas être négatif.');
+            throw new Exception('Coefficient cannot be negative.');
         }
         
         $mod->update();
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        $_SESSION['mesgs']['success'][] = 'Module modifié avec succès.';
+        $_SESSION['mesgs']['success'][] = 'Module updated successfully.';
         
         header('Location: index.php?element=modules&action=list');
         exit;

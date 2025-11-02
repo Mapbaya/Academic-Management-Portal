@@ -2,8 +2,8 @@
 /**
  * Contrôleur index des cours
  * 
- * Page d'accueil du module cours. Displays un résumé et des statistiques
- * sur les cours, matières et enseignants (nombre total).
+ * Home page of the cours. Displays un résumé et des statistiques
+ * about cours, matières et enseignants (nombre total).
  * 
  * @package TD3
  * @subpackage Controllers
@@ -16,11 +16,11 @@ require_once dirname(__FILE__).'/../../class/matiere.class.php';
 require_once dirname(__FILE__).'/../../class/enseignant.class.php';
 
 /**
- * Retrieval des statistiques pour affichage
+ * Retrieval ofs statistiques pour affichage
  * 
- * @var int Nombre total de cours dans la base de données
- * @var int Nombre total de matières dans la base de données
- * @var int Nombre total d'enseignants dans la base de données
+ * @var int Total number de cours in the database
+ * @var int Total number de matières in the database
+ * @var int Total number d'enseignants in the database
  */
 $totalCours = count(Cours::fetchAll());
 $totalMatieres = count(Matiere::fetchAll());

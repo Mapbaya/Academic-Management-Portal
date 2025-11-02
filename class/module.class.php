@@ -2,7 +2,7 @@
 /**
  * Class for managing l'entité Module
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les modules.
+ * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about modules.
  * Un module possède un numéro, un nom et un coefficient.
  * 
  * @package TD3
@@ -25,7 +25,7 @@ declare(strict_types=1);
  * @version 1.0
  */
 class Module {
-    /** @var int Identifiant unique du module dans la base de données */
+    /** @var int Unique identifier du module in the database */
     public int $rowid;
     
     /** @var string Numéro du module */
@@ -56,7 +56,7 @@ class Module {
     }
 
     /**
-     * Creates un nouveau module dans la base de données
+     * Creates un nouveau module in the database
      * 
      * Insère un nouveau module avec toutes ses informations dans la table mp_modules.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
@@ -81,7 +81,7 @@ class Module {
     }
 
     /**
-     * Met à jour les informations du module dans la base de données
+     * Met à jour les informations du module in the database
      * 
      * Met à jour toutes les propriétés du module. Le module doit avoir un rowid valide.
      * 
@@ -126,9 +126,9 @@ class Module {
     /**
      * Retrieves un module par son identifiant
      * 
-     * Recherche un module dans la base de données en utilisant son rowid.
+     * Recherche un module in the database en utilisant son rowid.
      * 
-     * @param int $id Identifiant unique du module
+     * @param int $id Unique identifier du module
      * @return Module|null Le module trouvé ou null si aucun résultat
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -145,9 +145,9 @@ class Module {
     /**
      * Retrieves tous les modules de la base de données
      * 
-     * Retourne une liste de tous les modules triés par nom alphabétique.
+     * Retourne une liste of all modules triés par nom alphabétique.
      * 
-     * @return array<Module> Tableau d'objets Module
+     * @return array<Module> Array of objects Module
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025

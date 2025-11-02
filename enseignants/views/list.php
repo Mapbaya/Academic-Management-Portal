@@ -1,7 +1,7 @@
 <?php
 /**
- * Vue of the list des enseignants
- * Affiche la liste des enseignants avec filtres et actions
+ * Vue of the list of teachers
+ * Displays the list of teachers with filters and actions
  * 
  * @package TD3
  * @author Votre nom
@@ -12,7 +12,7 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 ?>
 
 <div class="w3-container">
-    <h2 class="w3-center">Liste des enseignants</h2>
+    <h2 class="w3-center">Liste of teachers</h2>
 
     <!-- Barre de recherche / filtres -->
     <form method="get" action="index.php" class="w3-bar w3-margin-bottom">
@@ -38,7 +38,7 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
         </a>
     </div>
 
-    <!-- Tableau des enseignants -->
+    <!-- Tableau of teachers -->
     <table class="w3-table-all w3-hoverable">
         <thead>
             <tr class="w3-light-grey">

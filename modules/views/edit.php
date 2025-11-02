@@ -1,14 +1,14 @@
 <?php
 /**
- * Vue de modification d'un module
+ * Vue of modification for a module
  * 
- * Affiche le formulaire de modification d'un module avec tous ses champs.
+ * Displays the form of modification for a module with all its fields.
  * Permet de modifier le numéro, le nom et le coefficient du module.
  * 
  * @package TD3
  * @subpackage Views
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 ?>

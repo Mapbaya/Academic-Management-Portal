@@ -1,9 +1,9 @@
 <?php
 /**
- * Modification controller d'une matière
+ * Edit controller for ae matière
  * 
- * Manages la modification d'une matière existant ou la création d'une nouvelle matière.
- * Retrieves la matière par son ID (si édition), met à jour ses informations
+ * Manages the modification for ae matière existant ou la création for ae nouvelle matière.
+ * Retrieves la matière par son ID (si édition), updates its information
  * and redirects to the list des matières.
  * 
  * @package TD3
@@ -15,9 +15,9 @@
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Retrieval de l'identifiant de la matière à modifier (null si création)
+ * Retrieval of identifier de la matière à modifier (null si création)
  * 
- * @var int|null Identifiant unique de la matière ou null pour création
+ * @var int|null Unique identifier de la matière ou null pour création
  */
 $id = $_GET['id'] ?? null;
 $matiere = $id ? Matiere::fetch((int)$id) : new Matiere();

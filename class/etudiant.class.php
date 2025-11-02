@@ -2,8 +2,8 @@
 /**
  * Class for managing l'entité Étudiant
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les étudiants.
- * Elle permet également de createsr associated user lors de la création d'un étudiant.
+ * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about étudiants.
+ * Elle permet également de createsr the associated user lors de la création for a étudiant.
  * 
  * @package TD3
  * @subpackage Class
@@ -26,7 +26,7 @@ declare(strict_types=1);
  */
 class Etudiant
 {
-    /** @var int|null Identifiant unique de l'étudiant dans la base de données */
+    /** @var int|null Unique identifier de l'étudiant in the database */
     private ?int $rowid = null;
     
     /** @var string|null Numéro d'étudiant unique */
@@ -62,7 +62,7 @@ class Etudiant
     /** @var string|null Ville */
     private ?string $town = null;
     
-    /** @var int|null Identifiant de associated user dans la table mp_users */
+    /** @var int|null Identifiant de the associated user dans la table mp_users */
     private ?int $fk_user = null;
 
     /**
@@ -111,7 +111,7 @@ class Etudiant
     }
 
     /**
-     * Méthode magique pour définir la valeur d'une propriété
+     * Méthode magique pour définir la valeur for ae propriété
      * 
      * Permet de modifier les propriétés privées de la classe.
      * 
@@ -231,7 +231,7 @@ class Etudiant
     /**
      * Retrieves un étudiant par son identifiant ou son numéro d'étudiant
      * 
-     * Recherche un étudiant dans la base de données en utilisant soit son rowid (identifiant),
+     * Recherche un étudiant in the database en utilisant soit son rowid (identifiant),
      * soit son numetu (numéro d'étudiant). Si la valeur est numérique, la recherche se fait par rowid,
      * sinon par numetu.
      * 
@@ -263,7 +263,7 @@ class Etudiant
      * 
      * Retourne une liste de tous les étudiants triés par nom de famille puis par prénom.
      * 
-     * @return array<Etudiant> Tableau d'objets Etudiant
+     * @return array<Etudiant> Array of objects Etudiant
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -283,9 +283,9 @@ class Etudiant
      * Les valeurs contenant '%' sont traitées comme des recherches LIKE (pattern matching),
      * sinon comme des comparaisons d'égalité exacte.
      * 
-     * @param array<string, string> $criteria Tableau associatif des critères de recherche
+     * @param array<string, string> $criteria Associative array of search criteria de recherche
      *                                        (ex: ['firstname' => 'Jean', 'year' => '1'])
-     * @return array<Etudiant> Tableau d'objets Etudiant correspondant aux critères
+     * @return array<Etudiant> Array of objects Etudiant correspondant aux critères
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -313,7 +313,7 @@ class Etudiant
     }
 
     /**
-     * Met à jour les informations de l'étudiant dans la base de données
+     * Met à jour les informations de l'étudiant in the database
      * 
      * Met à jour toutes les propriétés de l'étudiant (sauf rowid et fk_user).
      * L'étudiant doit avoir un rowid valide.
@@ -362,13 +362,13 @@ class Etudiant
     /**
      * Supprime l'étudiant de la base de données
      * 
-     * Supprime l'étudiant et optionnellement associated user.
+     * Supprime l'étudiant et optionnellement the associated user.
      * L'opération est effectuée dans une transaction pour garantir la cohérence.
      * 
-     * @param bool $deleteUser Si true, supprime également associated user (by default: true)
+     * @param bool $deleteUser Si true, deletes également the associated user (by default: true)
      * @return bool true si la suppression réussit
      * @throws Exception Si le rowid est manquant
-     * @throws Exception Si une erreur survient lors de la suppression
+     * @throws Exception Si une erreur survient during deletion
      * @author Kime Marwa
      * @since November 2, 2025
      */

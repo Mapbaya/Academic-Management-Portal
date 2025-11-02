@@ -1,9 +1,9 @@
 <?php
 /**
- * List controller des cours
+ * List controller for cours
  * 
- * Manages the display of the list des cours with filtering capability.
- * Retrieves les critères de recherche from GET parameters et affiche
+ * Manages the display of the cours with filtering capability.
+ * Retrieves les critères de recherche from GET parameters and displays
  * les résultats correspondants avec les informations des matières et enseignants.
  * 
  * @package TD3

@@ -1,15 +1,15 @@
 <?php
 /**
- * Controller forajout d'un module
+ * Controller forajout for a module
  * 
- * Manages the creation d'un nouveau module. Validates form data,
- * creates le module puis redirige vers la liste avec un message de confirmation
+ * Manages the creation for a nouveau module. Validates form data,
+ * creates le module then redirects vers the list avec un message de confirmation
  * ou d'erreur.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once '../../class/module.class.php';

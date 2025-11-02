@@ -1,7 +1,7 @@
 <?php
 /**
  * Vue of the list des matières
- * Displays la liste des matières avec actions
+ * Displays the list des matières avec actions
  * 
  * @package TD3
  * @author Votre nom

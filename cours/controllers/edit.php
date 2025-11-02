@@ -1,9 +1,9 @@
 <?php
 /**
- * Modification controller d'un cours
+ * Edit controller for a cours
  * 
- * Manages la modification d'un cours existant. Retrieves le cours par son ID,
- * met à jour ses informations and redirects to the list des cours.
+ * Manages the modification for a cours existing. Retrieves le cours by its ID,
+ * updates its information and redirects to the list des cours.
  * 
  * @package TD3
  * @subpackage Controllers

@@ -2,13 +2,13 @@
 /**
  * Vue of the list des modules
  * 
- * Affiche la liste de tous les modules avec possibilité d'ajout, modification et suppression.
+ * Displays the list of all modules with possibility of add, edit and delete.
  * Les actions utilisent des icônes Font Awesome et des tooltips pour une meilleure UX.
  * 
  * @package TD3
  * @subpackage Views
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);

@@ -1,23 +1,23 @@
 <?php
 /**
- * Delete controller d'un module
+ * Delete controller for a module
  * 
- * Manages la suppression d'un module par son ID. Vérifie l'existence du module,
- * vérifie qu'il n'est pas lié à des matières, puis le supprime and redirects to the list.
+ * Manages the deletion for a module by its ID. Checks the existence du module,
+ * verifies that it is not linked to subjects, puis le deletes and redirects to the list.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/module.class.php';
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Retrieval de l'identifiant du module à supprimer
+ * Retrieval of identifier du module à deletesr
  * 
- * @var int|null Identifiant unique du module
+ * @var int|null Unique identifier du module
  */
 $id = $_GET['id'] ?? null;
 $error = '';
@@ -26,7 +26,7 @@ if ($id) {
     $mod = Module::fetch((int)$id);
     
     if ($mod) {
-        // Vérifier si le module est lié à des matières
+        // Check if the module is linked to subjects
         $matieres = Matiere::fetchAll();
         $moduleHasMatieres = false;
         
@@ -38,31 +38,31 @@ if ($id) {
         }
         
         if ($moduleHasMatieres) {
-            // Stocker l'erreur dans la session pour l'affichage
+            // Stocker l'erreur in session for display
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-            $_SESSION['mesgs']['errors'][] = 'Impossible de supprimer ce module car il est lié à une ou plusieurs matières. Veuillez d\'abord supprimer ou modifier les matières associées.';
+            $_SESSION['mesgs']['errors'][] = 'Impossible de deletesr ce module because it is linked to one or more matières. Veuillez d\'abord deletesr ou modifier the associated subjects.';
         } else {
-            // Supprimer le module si aucune matière n'est liée
+            // Delete the module if no subject is linked
             try {
                 $mod->delete();
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }
-                $_SESSION['mesgs']['success'][] = 'Module supprimé avec succès.';
+                $_SESSION['mesgs']['success'][] = 'Module deleted successfully.';
             } catch (Exception $e) {
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }
-                $_SESSION['mesgs']['errors'][] = 'Erreur lors de la suppression : ' . $e->getMessage();
+                $_SESSION['mesgs']['errors'][] = 'Erreur during deletion : ' . $e->getMessage();
             }
         }
     } else {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        $_SESSION['mesgs']['errors'][] = 'Module introuvable.';
+        $_SESSION['mesgs']['errors'][] = 'Module not found.';
     }
 }
 

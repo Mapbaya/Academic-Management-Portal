@@ -1,10 +1,10 @@
 <?php
 /**
- * List controller des matières
+ * List controller for matières
  * 
  * Manages the display of the list de toutes les matières. Retrieves toutes les matières
- * depuis la base de données avec les informations des modules associés et les passe
- * à la vue pour affichage.
+ * from the database avec les informations des modules associés et les passe
+ * à la vue for display.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -15,8 +15,8 @@
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Retrieval de toutes les matières pour affichage
+ * Retrieval of toutes les matières pour affichage
  * 
- * @var array<Matiere> Tableau d'objets Matiere avec informations des modules
+ * @var array<Matiere> Array of objects Matiere avec informations des modules
  */
 $matieres = Matiere::fetchAll();

@@ -1,9 +1,9 @@
 <?php
 /**
- * Controller forajout d'un étudiant
+ * Controller forajout for a étudiant
  * 
  * Manages the creation of a new étudiant. Validates form data,
- * creates l'étudiant ainsi que associated user, and redirects to the list
+ * creates l'étudiant ainsi que the associated user, and redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -18,7 +18,7 @@ require_once dirname(__FILE__) . '/../../class/etudiant.class.php';
 require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 
 $error = '';
-$old = []; // valeurs pour pré-remplir le formulaire si erreur
+$old = []; // valeurs pour pré-remplir the form si erreur
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieval et nettoyage minimal

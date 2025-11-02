@@ -1,23 +1,23 @@
 <?php
 /**
- * List controller des enseignants
+ * List controller for enseignants
  * 
- * Manages the display of the list des enseignants with filtering capability.
- * Récupère les critères de recherche from GET parameters et affiche
- * les résultats correspondants.
+ * Manages the display of the enseignants with filtering capability.
+ * Retrieves search criteria from GET parameters and displays
+ * the corresponding results.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__).'/../../class/enseignant.class.php';
 
 /**
- * Retrieval des critères de filtrage from GET parameters
+ * Retrieval of filtering criteria from GET parameters
  * 
- * @var array<string, string> Tableau associatif des critères de recherche
+ * @var array<string, string> Associative array of search criteria de recherche
  */
 $criteria = [];
 
@@ -31,7 +31,7 @@ if (!empty($_GET['town'])) { // 🔥 ajout du filtre ville
     $criteria['town'] = $_GET['town'];
 }
 
-// On exécute la recherche
+// Execute search
 $enseignants = !empty($criteria)
     ? Enseignant::find($criteria)
     : Enseignant::fetchAll();

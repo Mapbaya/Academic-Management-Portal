@@ -1,9 +1,9 @@
 <?php
 /**
- * Controller forajout d'un cours
+ * Controller forajout for a cours
  * 
- * Manages the creation d'un nouveau cours. Permet également de createsr un nouveau module
- * ou une nouvelle matière si nécessaire lors de la création du cours.
+ * Manages the creation for a nouveau cours. Permet également de createsr un nouveau module
+ * ou une nouvelle matière if necessary lors de la création du cours.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -20,7 +20,7 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        // --- Création d'un module si nécessaire ---
+        // --- Création for a module if necessary ---
         $fk_module = $_POST['new_matiere_module'] ?? null;
         if (!empty($_POST['new_module_name'])) {
             $module = new Module([
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fk_module = $module->rowid;
         }
 
-        // --- Création d'une matière si nécessaire ---
+        // --- Création for ae matière if necessary ---
         $fk_matiere = $_POST['fk_matiere'] ?? null;
         if (empty($fk_matiere) && !empty($_POST['new_matiere_name'])) {
             $matiere = new Matiere([

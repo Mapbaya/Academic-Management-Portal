@@ -2,7 +2,7 @@
 /**
  * Class for managing l'entité Matière
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les matières.
+ * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about matières.
  * Une matière est associée à un module et possède un numéro, un nom et un coefficient.
  * 
  * @package TD3
@@ -25,7 +25,7 @@ declare(strict_types=1);
  * @version 1.0
  */
 class Matiere {
-    /** @var int Identifiant unique de la matière dans la base de données */
+    /** @var int Unique identifier de la matière in the database */
     public int $rowid;
     
     /** @var string Numéro de la matière */
@@ -40,7 +40,7 @@ class Matiere {
     /** @var int Identifiant du module associé (clé étrangère) */
     public int $fk_module;
 
-    /** @var string|null Nom du module associé (pour l'affichage) */
+    /** @var string|null Nom du module associé (for display) */
     public ?string $module_name = null;
 
     /**
@@ -62,7 +62,7 @@ class Matiere {
     }
 
     /**
-     * Creates une nouvelle matière dans la base de données
+     * Creates une nouvelle matière in the database
      * 
      * Insère une nouvelle matière avec toutes ses informations dans la table mp_matieres.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
@@ -90,10 +90,10 @@ class Matiere {
     /**
      * Retrieves une matière par son identifiant
      * 
-     * Recherche une matière dans la base de données en utilisant son rowid.
+     * Recherche une matière in the database en utilisant son rowid.
      * Inclut également le nom du module associé.
      * 
-     * @param int $id Identifiant unique de la matière
+     * @param int $id Unique identifier de la matière
      * @return Matiere|null La matière trouvée ou null si aucun résultat
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -118,7 +118,7 @@ class Matiere {
      * Retourne une liste de toutes les matières avec le nom du module associé,
      * triées par nom alphabétique.
      * 
-     * @return array<Matiere> Tableau d'objets Matiere
+     * @return array<Matiere> Array of objects Matiere
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -144,9 +144,9 @@ class Matiere {
      * Permet de rechercher des matières avec des critères multiples.
      * Les recherches sont effectuées avec LIKE (pattern matching).
      * 
-     * @param array<string, string> $criteria Tableau associatif des critères de recherche
+     * @param array<string, string> $criteria Associative array of search criteria de recherche
      *                                        (ex: ['name' => 'Mathématiques', 'num_matiere' => 'MATH'])
-     * @return array<Matiere> Tableau d'objets Matiere correspondant aux critères
+     * @return array<Matiere> Array of objects Matiere correspondant aux critères
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -172,7 +172,7 @@ class Matiere {
     }
 
     /**
-     * Met à jour les informations de la matière dans la base de données
+     * Met à jour les informations de la matière in the database
      * 
      * Met à jour toutes les propriétés de la matière. La matière doit avoir un rowid valide.
      * 

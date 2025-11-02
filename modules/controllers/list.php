@@ -1,22 +1,22 @@
 <?php
 /**
- * List controller des modules
+ * List controller for modules
  * 
- * Manages the display of the list de tous les modules. Récupère tous les modules
- * depuis la base de données et les passe à la vue pour affichage.
+ * Manages the display of the list of all modules. Retrieves all modules
+ * from the database and passes them to the view for display.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/module.class.php';
 
 /**
- * Retrieval de tous les modules pour affichage
+ * Retrieval of tous les modules pour affichage
  * 
- * @var array<Module> Tableau d'objets Module
+ * @var array<Module> Array of objects Module
  */
 $modules = Module::fetchAll();
 include dirname(__FILE__) . '/../views/list.php';

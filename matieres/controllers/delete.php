@@ -1,9 +1,9 @@
 <?php
 /**
- * Delete controller d'une matière
+ * Delete controller for ae matière
  * 
- * Manages la suppression d'une matière par son ID. Checks l'existence de la matière,
- * la supprime puis redirige vers la liste des matières.
+ * Manages the deletion for ae matière by its ID. Checks l'existence de la matière,
+ * la deletes then redirects vers the list des matières.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -14,9 +14,9 @@
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Retrieval de l'identifiant de la matière à supprimer
+ * Retrieval of identifier de la matière à deletesr
  * 
- * @var int|null Identifiant unique de la matière
+ * @var int|null Unique identifier de la matière
  */
 $id = $_GET['id'] ?? null;
 if ($id) {

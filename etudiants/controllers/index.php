@@ -2,8 +2,8 @@
 /**
  * Contrôleur index des étudiants
  * 
- * Page d'accueil du module étudiants. Displays un résumé et des statistiques
- * sur les étudiants (nombre total).
+ * Home page of the étudiants. Displays un résumé et des statistiques
+ * about étudiants (nombre total).
  * 
  * @package TD3
  * @subpackage Controllers
@@ -14,8 +14,8 @@
 require_once dirname(__FILE__) . '/../../class/etudiant.class.php';
 
 /**
- * Retrieval du nombre total d'étudiants pour affichage
+ * Retrieval of total number d'étudiants pour affichage
  * 
- * @var int Nombre total d'étudiants dans la base de données
+ * @var int Total number d'étudiants in the database
  */
 $totalEtudiants = count(Etudiant::fetchAll());

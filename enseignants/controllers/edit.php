@@ -1,9 +1,9 @@
 <?php
 /**
- * Modification controller d'un enseignant
+ * Edit controller for a enseignant
  * 
- * Manages la modification d'un enseignant existant. Retrieves l'enseignant par son ID,
- * valide et met à jour les données du formulaire, puis redirige vers la liste
+ * Manages the modification for a enseignant existing. Retrieves l'enseignant by its ID,
+ * valide et met à jour les données du formulaire, then redirects vers the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -44,11 +44,11 @@ try {
      */
     $ens = Enseignant::fetch($_GET['id']);
     if (!$ens) {
-        die('Enseignant introuvable.');
+        die('Teacher not found.');
     }
 
     /**
-     * Processing of submission du formulaire de modification
+     * Processing of submission du formulaire of modification
      */
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         /**
@@ -63,12 +63,12 @@ try {
         $ens->town      = !empty($_POST['town']) ? capitalizeName($_POST['town']) : $ens->town;
 
         /**
-         * Sauvegarde les modifications dans la base de données
+         * Sauvegarde les modifications in the database
          */
         $ens->update();
 
         /**
-         * Redirige vers la liste des enseignants après modification réussie
+         * Redirige vers the list of teachers après modification réussie
          */
         header('Location: index.php?element=enseignants&action=list');
         exit;

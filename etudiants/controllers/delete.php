@@ -1,9 +1,9 @@
 <?php
 /**
- * Delete controller d'un étudiant
+ * Delete controller for a étudiant
  * 
- * Manages la suppression d'un étudiant par son ID. Checks l'existence de l'étudiant,
- * supprime l'étudiant et associated user, puis redirige vers la liste
+ * Manages the deletion for a étudiant by its ID. Checks l'existence de l'étudiant,
+ * deletes l'étudiant et the associated user, then redirects vers the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -16,10 +16,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
 require_once dirname(__FILE__) . '/../../class/etudiant.class.php';
 
-// Retrieval de l'ID de l'étudiant à supprimer
+// Retrieval of l'ID de l'étudiant à deletesr
 $id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
 if ($id <= 0) {
-    $_SESSION['mesgs']['errors'][] = 'Identifiant invalide pour suppression.';
+    $_SESSION['mesgs']['errors'][] = 'Invalid identifier for deletion.';
     header('Location: index.php?element=etudiants&action=list');
     exit;
 }
@@ -33,11 +33,11 @@ if (!$etu) {
 }
 
 try {
-    // Also deletes associated user by default (parameter true)
+    // Also deletes the associated user by default (parameter true)
     $etu->delete(true);
     $_SESSION['mesgs']['confirm'][] = 'Étudiant supprimé.';
 } catch (Exception $e) {
-    $_SESSION['mesgs']['errors'][] = 'Erreur lors de la suppression : ' . $e->getMessage();
+    $_SESSION['mesgs']['errors'][] = 'Erreur during deletion : ' . $e->getMessage();
 }
 
 header('Location: index.php?element=etudiants&action=list');

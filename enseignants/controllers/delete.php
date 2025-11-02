@@ -1,50 +1,50 @@
 <?php
 /**
- * Delete controller d'un enseignant
+ * Delete controller for a enseignant
  * 
- * Manages la suppression d'un enseignant par son ID. Vérifie l'existence de l'enseignant,
- * supprime l'enseignant et associated user, puis redirige vers la liste
+ * Manages the deletion for a enseignant by its ID. Checks the existence de l'enseignant,
+ * deletes l'enseignant et the associated user, then redirects vers the list
  * with a confirmation or error message.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/enseignant.class.php';
 
-// Démarrage de la session si nécessaire
+// Start session if necessary
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-// Retrieval de l'identifiant de l'enseignant à supprimer
+// Retrieval of identifier de l'enseignant à deletesr
 $id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
 
 // Verification of validity de l'ID
 if ($id <= 0) {
-    $_SESSION['mesgs']['errors'][] = 'Identifiant invalide pour suppression.';
+    $_SESSION['mesgs']['errors'][] = 'Invalid identifier for deletion.';
     header("Location: index.php?element=enseignants&action=list");
     exit;
 }
 
 try {
-    // Retrieval de l'enseignant à supprimer
+    // Retrieval of l'enseignant à deletesr
     $ens = Enseignant::fetch($id);
 
     if ($ens) {
-        // Suppression de l'enseignant et de associated user
+        // Deletion of l'enseignant et de the associated user
         $ens->delete();
-        $_SESSION['mesgs']['confirm'][] = 'Enseignant supprimé avec succès.';
+        $_SESSION['mesgs']['confirm'][] = 'Teacher deleted successfully.';
     } else {
-        $_SESSION['mesgs']['errors'][] = 'Enseignant introuvable.';
+        $_SESSION['mesgs']['errors'][] = 'Teacher not found.';
     }
 } catch (Exception $e) {
-    // Gestion de l'erreur lors de la suppression
-    $_SESSION['mesgs']['errors'][] = "Erreur lors de la suppression : " . $e->getMessage();
+    // Error handling during deletion
+    $_SESSION['mesgs']['errors'][] = "Erreur during deletion : " . $e->getMessage();
 }
 
-// Redirection vers la liste des enseignants
+// Redirect to list of teachers
 header("Location: index.php?element=enseignants&action=list");
 exit;

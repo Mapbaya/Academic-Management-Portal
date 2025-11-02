@@ -2,7 +2,7 @@
 /**
  * Class for managing l'entité Cours
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les cours.
+ * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about cours.
  * Un cours contient une date, une matière, un enseignant, un groupe TD, un groupe TP et une salle.
  * 
  * @package TD3
@@ -97,7 +97,7 @@ class Cours
     }
 
     /**
-     * Creates un nouveau cours dans la base de données
+     * Creates un nouveau cours in the database
      * 
      * Insère un nouveau cours avec toutes ses informations dans la table mp_cours.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
@@ -132,7 +132,7 @@ class Cours
      * Retourne une liste de tous les cours avec les informations associées
      * (nom de la matière et nom de l'enseignant) triés par date décroissante.
      * 
-     * @return array<Cours> Tableau d'objets Cours
+     * @return array<Cours> Array of objects Cours
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -159,9 +159,9 @@ class Cours
      * Permet de rechercher des cours avec des critères multiples.
      * Les recherches sont effectuées en insensible à la casse avec LIKE.
      * 
-     * @param array<string, string> $criteria Tableau associatif des critères de recherche
+     * @param array<string, string> $criteria Associative array of search criteria de recherche
      *                                        (ex: ['salle' => 'A101', 'groupe_td' => 'TD1'])
-     * @return array<Cours> Tableau d'objets Cours correspondant aux critères
+     * @return array<Cours> Array of objects Cours correspondant aux critères
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -198,9 +198,9 @@ class Cours
     /**
      * Retrieves un cours par son identifiant
      * 
-     * Recherche un cours dans la base de données en utilisant son rowid.
+     * Recherche un cours in the database en utilisant son rowid.
      * 
-     * @param int $id Identifiant unique du cours
+     * @param int $id Unique identifier du cours
      * @return Cours|null Le cours trouvé ou null si aucun résultat
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -216,7 +216,7 @@ class Cours
     }
 
     /**
-     * Met à jour les informations du cours dans la base de données
+     * Met à jour les informations du cours in the database
      * 
      * Met à jour toutes les propriétés du cours. Le cours doit avoir un rowid valide.
      * 

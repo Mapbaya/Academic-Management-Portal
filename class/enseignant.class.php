@@ -2,8 +2,8 @@
 /**
  * Class for managing l'entité Enseignant
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les enseignants.
- * Elle permet également de createsr associated user lors de la création d'un enseignant.
+ * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about enseignants.
+ * Elle permet également de createsr the associated user lors de la création for a enseignant.
  * 
  * @package TD3
  * @subpackage Class
@@ -26,7 +26,7 @@ declare(strict_types=1);
  */
 class Enseignant
 {
-    /** @var int|null Identifiant unique de l'enseignant dans la base de données */
+    /** @var int|null Unique identifier de l'enseignant in the database */
     private ?int $rowid = null;
     
     /** @var string|null Prénom de l'enseignant */
@@ -47,7 +47,7 @@ class Enseignant
     /** @var string|null Ville */
     private ?string $town = null;
     
-    /** @var int|null Identifiant de associated user dans la table mp_users */
+    /** @var int|null Identifiant de the associated user dans la table mp_users */
     private ?int $fk_user = null;
 
     /**
@@ -82,7 +82,7 @@ class Enseignant
     public function __get(string $att) { return $this->$att ?? null; }
     
     /**
-     * Méthode magique pour définir la valeur d'une propriété
+     * Méthode magique pour définir la valeur for ae propriété
      * 
      * Permet de modifier les propriétés privées de la classe.
      * 
@@ -187,7 +187,7 @@ class Enseignant
     /**
      * Retrieves un enseignant par son identifiant ou son identifiant utilisateur
      * 
-     * Recherche un enseignant dans la base de données en utilisant soit son rowid (identifiant),
+     * Recherche un enseignant in the database en utilisant soit son rowid (identifiant),
      * soit son fk_user (identifiant utilisateur). Si la valeur est numérique, la recherche se fait par rowid,
      * sinon par fk_user.
      * 
@@ -214,7 +214,7 @@ class Enseignant
      * 
      * Retourne une liste de tous les enseignants triés par nom de famille puis par prénom.
      * 
-     * @return array<Enseignant> Tableau d'objets Enseignant
+     * @return array<Enseignant> Array of objects Enseignant
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -229,12 +229,12 @@ class Enseignant
     /**
      * Recherche dynamique d'enseignants selon des critères
      * 
-     * Permet de rechercher des enseignants avec des critères multiples.
+     * Permet de rechercher of teachers avec des critères multiples.
      * Les recherches sont effectuées en insensible à la casse avec LIKE.
      * 
-     * @param array<string, string> $criteria Tableau associatif des critères de recherche
+     * @param array<string, string> $criteria Associative array of search criteria de recherche
      *                                        (ex: ['firstname' => 'Jean', 'town' => 'Lille'])
-     * @return array<Enseignant> Tableau d'objets Enseignant correspondant aux critères
+     * @return array<Enseignant> Array of objects Enseignant correspondant aux critères
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -255,7 +255,7 @@ class Enseignant
     }
 
     /**
-     * Met à jour les informations de l'enseignant dans la base de données
+     * Met à jour les informations de l'enseignant in the database
      * 
      * Met à jour toutes les propriétés de l'enseignant (sauf rowid et fk_user).
      * L'enseignant doit avoir un rowid valide.
@@ -289,13 +289,13 @@ class Enseignant
     /**
      * Supprime l'enseignant de la base de données
      * 
-     * Supprime l'enseignant et optionnellement associated user.
+     * Supprime l'enseignant et optionnellement the associated user.
      * L'opération est effectuée dans une transaction pour garantir la cohérence.
      * 
-     * @param bool $deleteUser Si true, supprime également associated user (by default: true)
+     * @param bool $deleteUser Si true, deletes également the associated user (by default: true)
      * @return bool true si la suppression réussit
      * @throws Exception Si le rowid est manquant
-     * @throws Exception Si une erreur survient lors de la suppression
+     * @throws Exception Si une erreur survient during deletion
      * @author Kime Marwa
      * @since November 2, 2025
      */

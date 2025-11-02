@@ -1,9 +1,9 @@
 <?php
 /**
- * Modification controller d'un étudiant
+ * Edit controller for a étudiant
  * 
- * Manages la modification d'un étudiant existant. Retrieves l'étudiant par son ID,
- * valide et met à jour les données du formulaire, puis redirige vers la liste
+ * Manages the modification for a étudiant existing. Retrieves l'étudiant by its ID,
+ * valide et met à jour les données du formulaire, then redirects vers the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -28,7 +28,7 @@ if ($id <= 0) {
     exit;
 }
 
-// Retrieval de l'étudiant à modifier
+// Retrieval of l'étudiant à modifier
 $etu = Etudiant::fetch($id);
 if (!$etu) {
     $_SESSION['mesgs']['errors'][] = 'Étudiant introuvable.';

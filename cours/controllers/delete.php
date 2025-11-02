@@ -1,9 +1,9 @@
 <?php
 /**
- * Delete controller d'un cours
+ * Delete controller for a cours
  * 
- * Manages la suppression d'un cours par son ID. Checks l'existence du cours,
- * le supprime puis redirige vers la liste des cours.
+ * Manages the deletion for a cours by its ID. Checks l'existence du cours,
+ * le deletes then redirects vers the list des cours.
  * 
  * @package TD3
  * @subpackage Controllers
