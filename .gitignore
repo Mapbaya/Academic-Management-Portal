@@ -36,3 +36,9 @@ test*.php
 # Scripts temporaires
 create_archive.php
 
+# Instructions temporaires
+INSTRUCTIONS_GITHUB.md
+
+# Archives (déjà dans *.zip mais pour être sûr)
+TD3.zip
+
