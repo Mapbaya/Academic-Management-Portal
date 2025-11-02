@@ -16,7 +16,7 @@ declare(strict_types=1);
 /**
  * Class Matiere
  * 
- * Represents ae matière in the system with all its properties
+ * Represents a subject in the system with all its properties
  * and methods to interact with the database.
  * 
  * @package TD3
@@ -62,10 +62,10 @@ class Matiere {
     }
 
     /**
-     * Creates une nouvelle matière in the database
+     * Creates a new subject in the database
      * 
      * Inserts a new subject with all its information into the mp_matieres table.
-     * L'identifiant rowid est automatiquement assigné après l'insertion.
+     * The rowid identifier is automatically assigned after insertion.
      * 
      * @return void
      * @throws PDOException If a database error occurs

@@ -56,10 +56,10 @@ class Module {
     }
 
     /**
-     * Creates un nouveau module in the database
+     * Creates a new module in the database
      * 
      * Inserts a new module with all its information into the mp_modules table.
-     * L'identifiant rowid est automatiquement assigné après l'insertion.
+     * The rowid identifier is automatically assigned after insertion.
      * 
      * @return void
      * @throws PDOException If a database error occurs
