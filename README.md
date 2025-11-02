@@ -1,47 +1,47 @@
-# TD3 - Système de Gestion Académique
+# TD3 - Academic Management System
 
-Application web de gestion des étudiants, enseignants et cours développée en PHP avec une architecture MVC.
+Web application for managing students, teachers and courses developed in PHP with an MVC architecture.
 
 ## 📋 Description
 
-TD3 est une application web complète permettant la gestion d'une institution académique. Elle offre les fonctionnalités suivantes :
+TD3 is a complete web application for managing an academic institution. It offers the following features:
 
-- **Gestion des étudiants** : Création, modification, suppression et consultation des étudiants
-- **Gestion des enseignants** : Création, modification, suppression et consultation des enseignants
-- **Gestion des cours** : Création, modification, suppression et consultation des cours
-- **Gestion des modules** : Organisation des matières par modules
-- **Gestion des matières** : Organisation des cours par matières
+- **Student Management**: Create, modify, delete and view students
+- **Teacher Management**: Create, modify, delete and view teachers
+- **Course Management**: Create, modify, delete and view courses
+- **Module Management**: Organize subjects by modules
+- **Subject Management**: Organize courses by subjects
 
 ## 🚀 Installation
 
-### Prérequis
+### Prerequisites
 
-- PHP 8.0 ou supérieur
-- MySQL 5.7 ou supérieur
-- Apache ou Nginx avec mod_rewrite
-- Composer (pour les dépendances)
+- PHP 8.0 or higher
+- MySQL 5.7 or higher
+- Apache or Nginx with mod_rewrite
+- Composer (for dependencies)
 
-### Étapes d'installation
+### Installation Steps
 
-1. **Cloner ou télécharger le projet**
+1. **Clone or download the project**
    ```bash
    cd /srv/http/r301devweb/TD3
    ```
 
-2. **Installer les dépendances**
+2. **Install dependencies**
    
-   ⚠️ **Important** : Le dossier `vendor/` n'est pas inclus dans l'archive ZIP.
-   Vous devez installer les dépendances avec Composer :
+   ⚠️ **Important**: The `vendor/` folder is not included in the ZIP archive.
+   You must install dependencies with Composer:
    ```bash
    composer install
    ```
    
-   Cette commande installera automatiquement les dépendances listées dans `composer.json`
-   (notamment `vlucas/phpdotenv` pour la gestion des variables d'environnement).
+   This command will automatically install dependencies listed in `composer.json`
+   (notably `vlucas/phpdotenv` for environment variable management).
 
-3. **Configurer la base de données**
+3. **Configure the database**
    
-   Créer un fichier `.env` à la racine du projet avec les informations suivantes :
+   Create a `.env` file at the project root with the following information:
    ```env
    DB_HOST=localhost
    DB_NAME=r301project
@@ -50,219 +50,218 @@ TD3 est une application web complète permettant la gestion d'une institution ac
    DB_PASS=simplepass
    ```
 
-4. **Créer la base de données**
+4. **Create the database**
    
-   Importer le fichier `sqldumb.sql` dans votre base de données MySQL/MariaDB :
+   Import the `sqldumb.sql` file into your MySQL/MariaDB database:
    ```bash
    mysql -u simpleuser -p r301project < sqldumb.sql
    ```
    
-   Ou via phpMyAdmin : Sélectionner votre base de données, puis onglet "Importer" et sélectionner le fichier `sqldumb.sql`.
+   Or via phpMyAdmin: Select your database, then "Import" tab and select the `sqldumb.sql` file.
    
-   Cette importation créera automatiquement les tables suivantes :
-   - `mp_users` : Utilisateurs du système
-   - `mp_etudiants` : Étudiants
-   - `mp_enseignants` : Enseignants
-   - `mp_modules` : Modules
-   - `mp_matieres` : Matières
-   - `mp_cours` : Cours
+   This import will automatically create the following tables:
+   - `mp_users`: System users
+   - `mp_etudiants`: Students
+   - `mp_enseignants`: Teachers
+   - `mp_modules`: Modules
+   - `mp_matieres`: Subjects
+   - `mp_cours`: Courses
 
-5. **Configurer les permissions**
+5. **Configure permissions**
    
-   S'assurer que le serveur web a les permissions de lecture sur tous les fichiers :
+   Ensure the web server has read permissions on all files:
    ```bash
    sudo chown -R www-data:www-data /srv/http/r301devweb/TD3
    sudo chmod -R 755 /srv/http/r301devweb/TD3
    ```
 
-## 📁 Structure du projet
+## 📁 Project Structure
 
 ```
 TD3/
-├── class/              # Classes métier (Model)
+├── class/              # Business classes (Model)
 │   ├── cours.class.php
 │   ├── enseignant.class.php
 │   ├── etudiant.class.php
 │   ├── matiere.class.php
 │   ├── module.class.php
 │   └── myAuthClass.php
-├── cours/              # Module Cours
-│   ├── controllers/   # Contrôleurs
-│   └── views/          # Vues
-├── enseignants/        # Module Enseignants
+├── cours/              # Course Module
+│   ├── controllers/   # Controllers
+│   └── views/          # Views
+├── enseignants/        # Teachers Module
 │   ├── controllers/
 │   └── views/
-├── etudiants/          # Module Étudiants
+├── etudiants/          # Students Module
 │   ├── controllers/
 │   └── views/
-├── modules/             # Module Modules
+├── modules/             # Modules Module
 │   ├── controllers/
 │   └── views/
-├── matieres/            # Module Matières
+├── matieres/            # Subjects Module
 │   ├── controllers/
 │   └── views/
-├── inc/                 # Fichiers inclus
-│   ├── head.php        # En-tête HTML
-│   ├── footer.php      # Pied de page
-│   ├── top.php         # Barre de navigation
-│   └── content.php     # Routeur MVC
-├── lib/                 # Bibliothèques
-│   ├── mypdo.php       # Connexion PDO
-│   ├── security.lib.php # Sécurité et authentification
-│   └── myproject.lib.php # Fonctions utilitaires
-├── css/                 # Feuilles de style
+├── inc/                 # Included files
+│   ├── head.php        # HTML header
+│   ├── footer.php      # Footer
+│   ├── top.php         # Navigation bar
+│   └── content.php     # MVC router
+├── lib/                 # Libraries
+│   ├── mypdo.php       # PDO connection
+│   ├── security.lib.php # Security and authentication
+│   └── myproject.lib.php # Utility functions
+├── css/                 # Stylesheets
 │   └── styles.css
-├── js/                  # Scripts JavaScript
+├── js/                  # JavaScript scripts
 │   └── scripts.js
-├── docs/                # Documentation générée (PHPDoc)
-├── vendor/              # Dépendances Composer
-├── index.php            # Point d'entrée principal
-├── login.php            # Page de connexion
-├── main.inc.php         # Structure MVC principale
-├── phpdoc.xml           # Configuration PHPDoc
-├── composer.json        # Dépendances PHP
-└── README.md            # Ce fichier
+├── docs/                # Generated documentation (PHPDoc)
+├── vendor/              # Composer dependencies
+├── index.php            # Main entry point
+├── login.php            # Login page
+├── main.inc.php         # Main MVC structure
+├── phpdoc.xml           # PHPDoc configuration
+├── composer.json        # PHP dependencies
+└── README.md            # This file
 ```
 
-## 🔐 Authentification
+## 🔐 Authentication
 
-L'application utilise un système d'authentification basé sur les sessions PHP. Les identifiants de connexion sont stockés dans la table `mp_users`.
+The application uses a PHP session-based authentication system. Login credentials are stored in the `mp_users` table.
 
-**Note** : Pour la première utilisation, créer un utilisateur administrateur dans la base de données.
+**Note**: For first use, create an administrator user in the database.
 
-## 🎨 Interface utilisateur
+## 🎨 User Interface
 
-L'application dispose d'une interface moderne et responsive avec :
+The application features a modern and responsive interface with:
 
-- **Design interactif** : Animations et transitions fluides
-- **Icônes Font Awesome** : Pour une meilleure expérience utilisateur
-- **Autocomplétion d'adresses** : Utilisation de l'API Adresse Data Gouv pour faciliter la saisie
-- **Tooltips** : Informations contextuelles sur les boutons d'action
-- **Modales de confirmation** : Pour les actions critiques (suppression)
+- **Interactive Design**: Smooth animations and transitions
+- **Font Awesome Icons**: For a better user experience
+- **Address Autocomplete**: Uses Adresse Data Gouv API to facilitate data entry
+- **Tooltips**: Contextual information on action buttons
+- **Confirmation Modals**: For critical actions (deletion)
 
-## ⚙️ Fonctionnalités principales
+## ⚙️ Main Features
 
-### Gestion des étudiants
-- Création avec génération automatique d'utilisateur associé
-- Capitalisation automatique des noms et prénoms
-- Autocomplétion des adresses avec remplissage automatique de la ville et du code postal
-- Modification et suppression
+### Student Management
+- Creation with automatic associated user generation
+- Automatic capitalization of names and first names
+- Address autocomplete with automatic city and zip code filling
+- Modification and deletion
 
-### Gestion des enseignants
-- Création avec génération automatique d'utilisateur associé
-- Capitalisation automatique des noms et prénoms
-- Autocomplétion des adresses
-- Modification et suppression
+### Teacher Management
+- Creation with automatic associated user generation
+- Automatic capitalization of names and first names
+- Address autocomplete
+- Modification and deletion
 
-### Gestion des cours
-- Création de cours avec association à une matière et un enseignant
-- Possibilité de créer un module ou une matière lors de la création d'un cours
-- Modification et suppression
+### Course Management
+- Course creation with association to a subject and a teacher
+- Ability to create a module or subject when creating a course
+- Modification and deletion
 
-### Gestion des modules
-- CRUD complet (Create, Read, Update, Delete)
-- Attribution de coefficients
+### Module Management
+- Complete CRUD (Create, Read, Update, Delete)
+- Coefficient assignment
 
-### Gestion des matières
-- CRUD complet
-- Association à un module
-- Attribution de coefficients
+### Subject Management
+- Complete CRUD
+- Association with a module
+- Coefficient assignment
 
 ## 📚 Documentation
 
-La documentation PHPDoc est générée automatiquement. Pour la générer :
+PHPDoc documentation is automatically generated. To generate it:
 
 ```bash
 cd /srv/http/r301devweb/TD3
 php /home/lazou/tools/phpdoc/phpDocumentor.phar run -v -c "./phpdoc.xml"
 ```
 
-La documentation sera disponible dans le dossier `docs/` et accessible via :
+Documentation will be available in the `docs/` folder and accessible via:
 ```
 http://localhost/r301devweb/TD3/docs/index.html
 ```
 
-## 🛠️ Technologies utilisées
+## 🛠️ Technologies Used
 
-- **Backend** : PHP 8.4
-- **Base de données** : MySQL
-- **Frontend** : HTML5, CSS3, JavaScript (ES6+)
-- **Framework CSS** : Custom CSS (remplacement de W3.CSS)
-- **Bibliothèques** :
-  - Font Awesome 6.4.0 (icônes)
+- **Backend**: PHP 8.4
+- **Database**: MySQL
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **CSS Framework**: Custom CSS (replacement of W3.CSS)
+- **Libraries**:
+  - Font Awesome 6.4.0 (icons)
   - Google Fonts (Quicksand)
-  - vlucas/phpdotenv (gestion des variables d'environnement)
-- **Documentation** : PHPDoc
+  - vlucas/phpdotenv (environment variable management)
+- **Documentation**: PHPDoc
 
 ## 📝 Configuration
 
-### Variables d'environnement (.env)
+### Environment Variables (.env)
 
-Le fichier `.env` doit contenir :
+The `.env` file must contain:
 
 ```env
-DB_HOST=localhost      # Hôte de la base de données
-DB_NAME=r301project    # Nom de la base de données
-DB_PORT=3306          # Port MySQL
-DB_USER=simpleuser    # Utilisateur MySQL
-DB_PASS=simplepass    # Mot de passe MySQL
+DB_HOST=localhost      # Database host
+DB_NAME=r301project    # Database name
+DB_PORT=3306          # MySQL port
+DB_USER=simpleuser    # MySQL user
+DB_PASS=simplepass    # MySQL password
 ```
 
-### Configuration Apache
+### Apache Configuration
 
-Pour que l'application fonctionne correctement, activer le module `mod_rewrite` :
+For the application to work correctly, enable the `mod_rewrite` module:
 
 ```bash
 sudo a2enmod rewrite
 sudo systemctl restart apache2
 ```
 
-### Configuration de la base de données
+### Database Configuration
 
-Les tables sont créées avec les préfixes suivants :
-- `mp_users` : Utilisateurs
-- `mp_etudiants` : Étudiants
-- `mp_enseignants` : Enseignants
-- `mp_modules` : Modules
-- `mp_matieres` : Matières
-- `mp_cours` : Cours
+Tables are created with the following prefixes:
+- `mp_users`: Users
+- `mp_etudiants`: Students
+- `mp_enseignants`: Teachers
+- `mp_modules`: Modules
+- `mp_matieres`: Subjects
+- `mp_cours`: Courses
 
-## 🐛 Résolution de problèmes
+## 🐛 Troubleshooting
 
-### Erreur de connexion à la base de données
+### Database Connection Error
 
-1. Vérifier que MySQL est démarré : `sudo systemctl status mysql`
-2. Vérifier les informations dans `.env`
-3. Vérifier que l'utilisateur MySQL a les droits nécessaires
+1. Check that MySQL is running: `sudo systemctl status mysql`
+2. Check the information in `.env`
+3. Verify that the MySQL user has the necessary permissions
 
-### Styles non appliqués
+### Styles Not Applied
 
-1. Vider le cache du navigateur (Ctrl+F5)
-2. Vérifier que le fichier `css/styles.css` est accessible
-3. Vérifier les permissions des fichiers CSS
+1. Clear browser cache (Ctrl+F5)
+2. Verify that the `css/styles.css` file is accessible
+3. Check CSS file permissions
 
-### Erreurs de type (TypeError)
+### Type Errors (TypeError)
 
-Les erreurs de type sont généralement dues à des valeurs non castées. Tous les champs numériques doivent être explicitement castés en `int` ou `float` lors de leur assignation.
+Type errors are generally due to non-casted values. All numeric fields must be explicitly cast to `int` or `float` when assigned.
 
-## 👤 Auteur
+## 👤 Author
 
 **Kime Marwa**
-- Date : 2 novembre 2025
-- Version : 1.0
+- Date: November 2, 2025
+- Version: 1.0
 
-## 📄 Licence
+## 📄 License
 
-Ce projet est un travail académique réalisé dans le cadre du TD3.
+This project is an academic work carried out as part of TD3.
 
 ## 🔄 Changelog
 
-### Version 1.0 (2 novembre 2025)
-- Initialisation du projet
-- Implémentation de l'architecture MVC
-- Gestion complète des étudiants, enseignants et cours
-- Interface utilisateur moderne et interactive
-- Documentation PHPDoc complète
-- Autocomplétion d'adresses avec API Adresse Data Gouv
-- Capitalisation automatique des noms et prénoms
-
+### Version 1.0 (November 2, 2025)
+- Project initialization
+- MVC architecture implementation
+- Complete management of students, teachers and courses
+- Modern and interactive user interface
+- Complete PHPDoc documentation
+- Address autocomplete with Adresse Data Gouv API
+- Automatic capitalization of names and first names
