@@ -17,7 +17,7 @@ declare(strict_types=1);
  * Class Module
  * 
  * Represents a module in the system with all its properties
- * et méthodes pour interagir avec la base de données.
+ * and methods to interact with the database.
  * 
  * @package TD3
  * @author Kime Marwa
@@ -58,7 +58,7 @@ class Module {
     /**
      * Creates un nouveau module in the database
      * 
-     * Insère un nouveau module avec toutes ses informations dans la table mp_modules.
+     * Inserts a new module with all its information into the mp_modules table.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
      * 
      * @return void

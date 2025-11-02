@@ -17,7 +17,7 @@ declare(strict_types=1);
  * Class Matiere
  * 
  * Represents ae matière in the system with all its properties
- * et méthodes pour interagir avec la base de données.
+ * and methods to interact with the database.
  * 
  * @package TD3
  * @author Kime Marwa
@@ -64,7 +64,7 @@ class Matiere {
     /**
      * Creates une nouvelle matière in the database
      * 
-     * Insère une nouvelle matière avec toutes ses informations dans la table mp_matieres.
+     * Inserts a new subject with all its information into the mp_matieres table.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
      * 
      * @return void
