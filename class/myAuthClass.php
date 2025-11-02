@@ -1,39 +1,39 @@
 <?php
 /**
- * Classe permettant de gérer l'authentification
+ * Class for managing authentication
  * 
- * Cette classe fournit des méthodes statiques pour vérifier l'authentification
- * des utilisateurs et pour authentifier un utilisateur avec un nom d'utilisateur
- * et un mot de passe.
+ * This class provides static methods to verify authentication
+ * of users and to authenticate a user with a username
+ * and password.
  * 
  * @package TD3
  * @subpackage Class
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 
 /**
- * Classe myAuthClass
+ * Class myAuthClass
  * 
- * Gère l'authentification des utilisateurs dans le système.
+ * Manages user authentication in the system.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 class myAuthClass
 {
     /**
-     * Vérifie si un utilisateur est authentifié
+     * Checks if a user is authenticated
      * 
-     * Vérifie si la session contient les informations d'un utilisateur authentifié.
+     * Checks if the session contains the information of an authenticated user.
      * 
-     * @param array<string, mixed> $current_session Tableau de session PHP ($_SESSION)
-     * @return bool true si l'utilisateur est authentifié, false sinon
+     * @param array<string, mixed> $current_session PHP session array ($_SESSION)
+     * @return bool true if the user is authenticated, false otherwise
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function is_auth($current_session)
     {
@@ -43,18 +43,18 @@ class myAuthClass
     }
 
     /**
-     * Authentifie un utilisateur avec un nom d'utilisateur et un mot de passe
+     * Authenticates a user with a username and password
      * 
-     * Vérifie les identifiants de connexion dans la base de données.
-     * Le mot de passe est comparé après hashage MD5.
+     * Checks login credentials in the database.
+     * Password is compared after MD5 hashing.
      * 
-     * @param string $username Nom d'utilisateur
-     * @param string $password Mot de passe en clair (sera hashé en MD5 pour comparaison)
-     * @return array<string, mixed>|false Tableau associatif contenant les informations de l'utilisateur
-     *                                   (rowid, username, firstname, lastname) ou false si échec
-     * @throws PDOException Si une erreur de base de données survient
+     * @param string $username Username
+     * @param string $password Password in plain text (will be hashed in MD5 for comparison)
+     * @return array<string, mixed>|false Associative array containing user information
+     *                                   (rowid, username, firstname, lastname) or false on failure
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function authenticate($username, $password)
     {

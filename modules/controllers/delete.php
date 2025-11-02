@@ -1,9 +1,9 @@
 <?php
 /**
- * Contrôleur de suppression d'un module
+ * Delete controller d'un module
  * 
- * Gère la suppression d'un module par son ID. Vérifie l'existence du module,
- * vérifie qu'il n'est pas lié à des matières, puis le supprime et redirige vers la liste.
+ * Manages la suppression d'un module par son ID. Vérifie l'existence du module,
+ * vérifie qu'il n'est pas lié à des matières, puis le supprime and redirects to the list.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -15,7 +15,7 @@ require_once dirname(__FILE__) . '/../../class/module.class.php';
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Récupération de l'identifiant du module à supprimer
+ * Retrieval de l'identifiant du module à supprimer
  * 
  * @var int|null Identifiant unique du module
  */

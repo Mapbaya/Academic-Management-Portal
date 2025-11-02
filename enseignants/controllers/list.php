@@ -1,9 +1,9 @@
 <?php
 /**
- * Contrôleur de liste des enseignants
+ * List controller des enseignants
  * 
- * Gère l'affichage de la liste des enseignants avec possibilité de filtrage.
- * Récupère les critères de recherche depuis les paramètres GET et affiche
+ * Manages the display of the list des enseignants with filtering capability.
+ * Récupère les critères de recherche from GET parameters et affiche
  * les résultats correspondants.
  * 
  * @package TD3
@@ -15,7 +15,7 @@
 require_once dirname(__FILE__).'/../../class/enseignant.class.php';
 
 /**
- * Récupération des critères de filtrage depuis les paramètres GET
+ * Retrieval des critères de filtrage from GET parameters
  * 
  * @var array<string, string> Tableau associatif des critères de recherche
  */

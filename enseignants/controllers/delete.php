@@ -1,10 +1,10 @@
 <?php
 /**
- * Contrôleur de suppression d'un enseignant
+ * Delete controller d'un enseignant
  * 
- * Gère la suppression d'un enseignant par son ID. Vérifie l'existence de l'enseignant,
- * supprime l'enseignant et l'utilisateur associé, puis redirige vers la liste
- * avec un message de confirmation ou d'erreur.
+ * Manages la suppression d'un enseignant par son ID. Vérifie l'existence de l'enseignant,
+ * supprime l'enseignant et associated user, puis redirige vers la liste
+ * with a confirmation or error message.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -19,10 +19,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-// Récupération de l'identifiant de l'enseignant à supprimer
+// Retrieval de l'identifiant de l'enseignant à supprimer
 $id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
 
-// Vérification de la validité de l'ID
+// Verification of validity de l'ID
 if ($id <= 0) {
     $_SESSION['mesgs']['errors'][] = 'Identifiant invalide pour suppression.';
     header("Location: index.php?element=enseignants&action=list");
@@ -30,11 +30,11 @@ if ($id <= 0) {
 }
 
 try {
-    // Récupération de l'enseignant à supprimer
+    // Retrieval de l'enseignant à supprimer
     $ens = Enseignant::fetch($id);
 
     if ($ens) {
-        // Suppression de l'enseignant et de l'utilisateur associé
+        // Suppression de l'enseignant et de associated user
         $ens->delete();
         $_SESSION['mesgs']['confirm'][] = 'Enseignant supprimé avec succès.';
     } else {

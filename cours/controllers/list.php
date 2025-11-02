@@ -1,15 +1,15 @@
 <?php
 /**
- * Contrôleur de liste des cours
+ * List controller des cours
  * 
- * Gère l'affichage de la liste des cours avec possibilité de filtrage.
- * Récupère les critères de recherche depuis les paramètres GET et affiche
+ * Manages the display of the list des cours with filtering capability.
+ * Retrieves les critères de recherche from GET parameters et affiche
  * les résultats correspondants avec les informations des matières et enseignants.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/cours.class.php';

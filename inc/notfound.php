@@ -1,15 +1,15 @@
 <?php
 /**
- * Page d'erreur 404 - Ressource non trouvée
+ * 404 error page - Resource not found
  * 
- * Affiche un message d'erreur lorsque le contrôleur ou la vue demandée
- * n'a pas été trouvé dans la structure MVC.
+ * Displays an error message when the requested controller or view
+ * was not found in the MVC structure.
  * 
  * @package TD3
  * @subpackage Inc
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 ?>
-<div class="dtitle">La page demandée (concernant <?= htmlspecialchars($target_c ?? '') . " / " . htmlspecialchars($target_v ?? ''); ?>) n'a pas été trouvée.</div>
+<div class="dtitle">The requested page (concerning <?= htmlspecialchars($target_c ?? '') . " / " . htmlspecialchars($target_v ?? ''); ?>) was not found.</div>

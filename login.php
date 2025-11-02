@@ -1,30 +1,30 @@
 <?php
 /**
- * Page de connexion à l'application
+ * Application login page
  * 
- * Affiche le formulaire de connexion et gère l'authentification des utilisateurs.
- * Utilise head.php et footer.php pour inclure les styles et scripts globaux.
+ * Displays the login form and handles user authentication.
+ * Uses head.php and footer.php to include global styles and scripts.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.1
  */
 session_start();
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 
-// Connexion à la base
+// Database connection
 $db = require(dirname(__FILE__) . '/lib/mypdo.php');
 
-// Variables pour head.php
-$authorized = false;      // pas encore connecté
-$title_page = "Connexion";
+// Variables for head.php
+$authorized = false;      // not logged in yet
+$title_page = "Login";
 
-// Inclusion de l'en-tête
+// Include header
 include dirname(__FILE__) . '/inc/head.php';
 ?>
 
-<!-- Contenu spécifique à la page de login -->
+<!-- Login page specific content -->
 <div class="login-container">
     <div class="login-card">
         <div class="login-header">
@@ -62,5 +62,5 @@ include dirname(__FILE__) . '/inc/head.php';
 </div>
 
 <?php
-// Inclure le footer (fermeture de contenu-principal, body, html)
+// Include footer (closes main-content, body, html)
 include dirname(__FILE__) . '/inc/footer.php';

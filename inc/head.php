@@ -1,32 +1,32 @@
 <?php
 /**
- * En-tête principal du site (import CSS, JS et structure globale)
+ * Main site header (CSS, JS imports and global structure)
  * 
- * Ce fichier génère le <head> HTML avec tous les imports nécessaires (CSS, JS),
- * calcule dynamiquement les chemins des ressources, et inclut le menu de navigation.
+ * This file generates the HTML <head> with all necessary imports (CSS, JS),
+ * dynamically calculates resource paths, and includes the navigation menu.
  * 
  * @package TD3
  * @subpackage Inc
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);
 
 /**
- * Calcule le chemin de base du projet pour les ressources CSS/JS
+ * Calculates the base path of the project for CSS/JS resources
  * 
- * Détermine automatiquement le chemin de base du projet en analysant plusieurs
- * variables d'environnement PHP (_SERVER). Utilise plusieurs méthodes de détection
- * pour garantir la compatibilité avec différentes configurations serveur.
+ * Automatically determines the base path of the project by analyzing multiple
+ * PHP environment variables (_SERVER). Uses multiple detection methods
+ * to ensure compatibility with different server configurations.
  * 
- * @return string Chemin de base (ex: /r301devweb/TD3 ou /TD3)
+ * @return string Base path (e.g. /r301devweb/TD3 or /TD3)
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  */
 function calculateBaseUrl(): string {
-    // Méthode 1 : Depuis SCRIPT_NAME (le plus fiable)
-    // Exemple: /r301devweb/TD3/index.php => /r301devweb/TD3
+    // Method 1: From SCRIPT_NAME (most reliable)
+    // Example: /r301devweb/TD3/index.php => /r301devweb/TD3
     if (!empty($_SERVER['SCRIPT_NAME'])) {
         $baseUrl = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
         if ($baseUrl !== '/' && $baseUrl !== '.' && !empty($baseUrl)) {
@@ -34,9 +34,9 @@ function calculateBaseUrl(): string {
         }
     }
     
-    // Méthode 2 : Depuis le fichier actuel et DOCUMENT_ROOT
-    // Si DOCUMENT_ROOT est /srv/http, et le projet est dans /srv/http/r301devweb/TD3
-    // Alors le chemin web devrait être /r301devweb/TD3
+    // Method 2: From current file and DOCUMENT_ROOT
+    // If DOCUMENT_ROOT is /srv/http, and the project is in /srv/http/r301devweb/TD3
+    // Then the web path should be /r301devweb/TD3
     if (!empty($_SERVER['DOCUMENT_ROOT'])) {
         $currentDir = dirname(__FILE__); // /srv/http/r301devweb/TD3/inc/
         $projectRoot = dirname($currentDir); // /srv/http/r301devweb/TD3/
@@ -51,15 +51,15 @@ function calculateBaseUrl(): string {
         }
     }
     
-    // Méthode 3 : Chercher le chemin dans REQUEST_URI
+    // Method 3: Search for path in REQUEST_URI
     if (!empty($_SERVER['REQUEST_URI'])) {
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         if ($uri) {
-            // Chercher /r301devweb/TD3 ou /TD3 dans l'URI
+            // Search for /r301devweb/TD3 or /TD3 in URI
             if (preg_match('#(/r301devweb/TD3|/TD3|/td3)#i', $uri, $matches)) {
                 return rtrim($matches[1], '/');
             }
-            // Sinon, prendre le dirname de l'URI
+            // Otherwise, take the dirname of the URI
             $uriDir = dirname($uri);
             if ($uriDir !== '/' && $uriDir !== '.') {
                 return rtrim($uriDir, '/');
@@ -67,7 +67,7 @@ function calculateBaseUrl(): string {
         }
     }
     
-    // Par défaut, essayer de détecter depuis le chemin du script
+    // By default, try to detect from script path
     if (!empty($_SERVER['PHP_SELF'])) {
         $phpSelf = $_SERVER['PHP_SELF'];
         $phpSelfDir = dirname($phpSelf);
@@ -83,7 +83,7 @@ $baseUrl = calculateBaseUrl();
 $cssPath = ($baseUrl ? rtrim($baseUrl, '/') : '') . '/css/styles.css';
 $jsPath = ($baseUrl ? rtrim($baseUrl, '/') : '') . '/js/scripts.js';
 
-// Debug temporaire pour vérifier le chemin (décommenter si besoin)
+// Temporary debug to verify path (uncomment if needed)
 // echo "<!-- DEBUG - Base URL: " . htmlspecialchars($baseUrl) . " -->\n";
 // echo "<!-- DEBUG - CSS Path: " . htmlspecialchars($cssPath) . " -->\n";
 // echo "<!-- DEBUG - JS Path: " . htmlspecialchars($jsPath) . " -->\n";
@@ -104,10 +104,10 @@ $jsPath = ($baseUrl ? rtrim($baseUrl, '/') : '') . '/js/scripts.js';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Ton style (URL publique calculée) -->
+    <!-- Your style (calculated public URL) -->
     <link rel="stylesheet" href="<?php echo htmlspecialchars($cssPath); ?>?v=<?php echo time(); ?>" type="text/css" media="all">
     <style>
-        /* Fallback immédiat pour garantir l'application */
+        /* Immediate fallback to ensure application */
         * { box-sizing: border-box; }
         body { 
             font-family: 'Quicksand', sans-serif !important;
@@ -119,12 +119,12 @@ $jsPath = ($baseUrl ? rtrim($baseUrl, '/') : '') . '/js/scripts.js';
         table { border-collapse: collapse; width: 100%; }
     </style>
 
-    <!-- Ton JS (URL publique calculée) -->
+    <!-- Your JS (calculated public URL) -->
     <script src="<?php echo htmlspecialchars($jsPath); ?>?v=<?php echo time(); ?>" defer></script>
 </head>
 <body>
 
-    <!-- Menu principal (haut) -->
+    <!-- Main menu (top) -->
     <div class="menu-haut w3-top">
         <?php
         if ($authorized == true)
@@ -132,7 +132,7 @@ $jsPath = ($baseUrl ? rtrim($baseUrl, '/') : '') . '/js/scripts.js';
         ?>
     </div>
 
-    <!-- Menu latéral (optionnel, masqué si vide) -->
+    <!-- Side menu (optional, hidden if empty) -->
     <div class="menu-gauche">
         <?php
         if ($authorized == true)
@@ -140,5 +140,5 @@ $jsPath = ($baseUrl ? rtrim($baseUrl, '/') : '') . '/js/scripts.js';
         ?>
     </div>
 
-    <!-- Contenu principal -->
+    <!-- Main content -->
     <div class="contenu-principal w3-container w3-center w3-padding-64">

@@ -1,15 +1,15 @@
 <?php
 /**
- * Contrôleur de modification d'un étudiant
+ * Modification controller d'un étudiant
  * 
- * Gère la modification d'un étudiant existant. Récupère l'étudiant par son ID,
+ * Manages la modification d'un étudiant existant. Retrieves l'étudiant par son ID,
  * valide et met à jour les données du formulaire, puis redirige vers la liste
- * avec un message de confirmation ou d'erreur.
+ * with a confirmation or error message.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 if (session_status() !== PHP_SESSION_ACTIVE) session_start();
@@ -28,7 +28,7 @@ if ($id <= 0) {
     exit;
 }
 
-// Récupération de l'étudiant à modifier
+// Retrieval de l'étudiant à modifier
 $etu = Etudiant::fetch($id);
 if (!$etu) {
     $_SESSION['mesgs']['errors'][] = 'Étudiant introuvable.';
@@ -36,10 +36,10 @@ if (!$etu) {
     exit;
 }
 
-// Traitement de la soumission du formulaire (mise à jour)
+// Processing of submission du formulaire (update)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        // Mise à jour des propriétés de l'étudiant
+        // Update of properties de l'étudiant
         $etu->numetu = $_POST['numetu'] ?? $etu->numetu;
         $etu->firstname = !empty($_POST['firstname']) ? capitalizeName($_POST['firstname']) : $etu->firstname;
         $etu->lastname = !empty($_POST['lastname']) ? capitalizeName($_POST['lastname']) : $etu->lastname;
@@ -54,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $etu->update();
 
-        // Message de confirmation standardisé
+        // Confirmation message standardized
         $_SESSION['mesgs']['confirm'][] = 'Étudiant mis à jour avec succès.';
         header('Location: index.php?element=etudiants&action=list');
         exit;
     } catch (Exception $e) {
-        $error = 'Erreur lors de la mise à jour : ' . $e->getMessage();
+        $error = 'Erreur lors de la update : ' . $e->getMessage();
         $_SESSION['mesgs']['errors'][] = $error;
     }
 }

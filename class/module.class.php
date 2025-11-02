@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe permettant de gérer l'entité Module
+ * Class for managing l'entité Module
  * 
  * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les modules.
  * Un module possède un numéro, un nom et un coefficient.
@@ -8,20 +8,20 @@
  * @package TD3
  * @subpackage Class
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);
 
 /**
- * Classe Module
+ * Class Module
  * 
  * Représente un module dans le système avec toutes ses propriétés
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 class Module {
@@ -45,7 +45,7 @@ class Module {
      * 
      * @param array<string, mixed> $data Tableau associatif contenant les données du module
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __construct(array $data = []) {
         foreach ($data as $k => $v) {
@@ -56,15 +56,15 @@ class Module {
     }
 
     /**
-     * Crée un nouveau module dans la base de données
+     * Creates un nouveau module dans la base de données
      * 
      * Insère un nouveau module avec toutes ses informations dans la table mp_modules.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
      * 
      * @return void
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function create() {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -86,9 +86,9 @@ class Module {
      * Met à jour toutes les propriétés du module. Le module doit avoir un rowid valide.
      * 
      * @return void
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function update() {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -113,9 +113,9 @@ class Module {
      * Supprime le module correspondant à l'identifiant rowid de l'objet.
      * 
      * @return void
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function delete() {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -124,15 +124,15 @@ class Module {
     }
 
     /**
-     * Récupère un module par son identifiant
+     * Retrieves un module par son identifiant
      * 
      * Recherche un module dans la base de données en utilisant son rowid.
      * 
      * @param int $id Identifiant unique du module
      * @return Module|null Le module trouvé ou null si aucun résultat
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetch(int $id): ?Module {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -143,14 +143,14 @@ class Module {
     }
 
     /**
-     * Récupère tous les modules de la base de données
+     * Retrieves tous les modules de la base de données
      * 
      * Retourne une liste de tous les modules triés par nom alphabétique.
      * 
      * @return array<Module> Tableau d'objets Module
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetchAll(): array {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');

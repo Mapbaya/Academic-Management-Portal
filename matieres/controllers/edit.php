@@ -1,21 +1,21 @@
 <?php
 /**
- * Contrôleur de modification d'une matière
+ * Modification controller d'une matière
  * 
- * Gère la modification d'une matière existant ou la création d'une nouvelle matière.
- * Récupère la matière par son ID (si édition), met à jour ses informations
- * et redirige vers la liste des matières.
+ * Manages la modification d'une matière existant ou la création d'une nouvelle matière.
+ * Retrieves la matière par son ID (si édition), met à jour ses informations
+ * and redirects to the list des matières.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Récupération de l'identifiant de la matière à modifier (null si création)
+ * Retrieval de l'identifiant de la matière à modifier (null si création)
  * 
  * @var int|null Identifiant unique de la matière ou null pour création
  */

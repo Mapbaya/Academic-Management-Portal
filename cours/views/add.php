@@ -23,7 +23,7 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
             <?php endforeach; ?>
         </select>
 
-        <p style="margin:0.5em 0;">Ou créer une nouvelle matière :</p>
+        <p style="margin:0.5em 0;">Ou createsr une nouvelle matière :</p>
         <input type="text" name="new_matiere_name" class="w3-input w3-border" placeholder="Nom de la matière">
         <input type="text" name="new_matiere_num" class="w3-input w3-border" placeholder="Numéro de matière">
         <input type="number" step="0.1" name="new_matiere_coef" class="w3-input w3-border" placeholder="Coefficient">
@@ -36,7 +36,7 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
             <?php endforeach; ?>
         </select>
 
-        <input type="text" name="new_module_name" class="w3-input w3-border" placeholder="Ou créer un nouveau module">
+        <input type="text" name="new_module_name" class="w3-input w3-border" placeholder="Ou createsr un nouveau module">
         <small>Si vous remplissez ce champ, un nouveau module sera créé automatiquement.</small>
     </div>
 

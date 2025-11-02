@@ -1,15 +1,15 @@
 <?php
 /**
- * Fichier principal de l'application TD3
+ * Main file of the TD3 application
  * 
- * Ce fichier structure l'application en incluant les différents composants :
- * - L'en-tête (head.php) : contient les balises HTML d'en-tête, CSS et JS
- * - Le contenu principal (content.php) : gère le routage MVC
- * - Le pied de page (footer.php) : contient le footer et la fermeture HTML
+ * This file structures the application by including the different components:
+ * - The header (head.php): contains HTML header tags, CSS and JS
+ * - Main content (content.php): manages MVC routing
+ * - Footer (footer.php): contains footer and HTML closing tags
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 include dirname(__FILE__) . "/inc/head.php";

@@ -1,7 +1,7 @@
 <?php
 /**
- * Vue de la liste des étudiants
- * Affiche la liste des étudiants avec filtres et actions
+ * Vue of the list des étudiants
+ * Displays la liste des étudiants avec filtres et actions
  * 
  * @package TD3
  * @author Votre nom

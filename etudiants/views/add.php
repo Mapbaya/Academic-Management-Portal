@@ -57,7 +57,7 @@
         <input type="password" name="password" class="w3-input" required>
 
         <div class="w3-margin-top">
-            <button type="submit" class="w3-button w3-green">Créer l’étudiant</button>
+            <button type="submit" class="w3-button w3-green">Createsr l’étudiant</button>
             <a href="index.php?element=etudiants&action=list" class="w3-button w3-gray">Annuler</a>
         </div>
     </form>

@@ -1,25 +1,25 @@
 <?php
 /**
- * Point d'entrée principal de l'application TD3
+ * Main entry point of the TD3 application
  * 
- * Ce fichier initialise l'application en chargeant les bibliothèques nécessaires
- * et en activant l'affichage des erreurs en mode développement. Il charge ensuite
- * le fichier principal qui gère la structure MVC du projet.
+ * This file initializes the application by loading the necessary libraries
+ * and enabling error display in development mode. It then loads
+ * the main file that manages the MVC structure of the project.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 
-// Chargement des bibliothèques du projet
+// Load project libraries
 require_once(dirname(__FILE__) . '/lib/security.lib.php');
 require_once(dirname(__FILE__) . '/lib/myproject.lib.php');
 
-// Activation de l'affichage des erreurs PHP (en dev uniquement)
+// Enable PHP error display (development mode only)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Chargement du cœur principal du projet (structure MVC)
+// Load the main core of the project (MVC structure)
 include dirname(__FILE__) . '/main.inc.php';

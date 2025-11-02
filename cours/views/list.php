@@ -1,7 +1,7 @@
 <?php
 /**
- * Vue de la liste des cours
- * Affiche la liste des cours avec filtres et actions
+ * Vue of the list des cours
+ * Displays la liste des cours avec filtres et actions
  * 
  * @package TD3
  * @author Votre nom

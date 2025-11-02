@@ -1,13 +1,13 @@
 <?php
 /**
- * Menu latéral (non utilisé)
+ * Side menu (not used)
  * 
- * Ce fichier était prévu pour un menu latéral mais n'est actuellement pas utilisé.
- * Il est inclus dans la structure principale mais reste vide.
+ * This file was intended for a side menu but is currently not used.
+ * It is included in the main structure but remains empty.
  * 
  * @package TD3
  * @subpackage Inc
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */

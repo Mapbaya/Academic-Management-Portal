@@ -1,6 +1,6 @@
 <?php
 /**
- * Vue de la liste des modules
+ * Vue of the list des modules
  * 
  * Affiche la liste de tous les modules avec possibilité d'ajout, modification et suppression.
  * Les actions utilisent des icônes Font Awesome et des tooltips pour une meilleure UX.

@@ -2,15 +2,15 @@
 /**
  * Page d'accueil du site
  * 
- * Affiche la page d'accueil avec les cartes interactives permettant d'accéder
+ * Displays la page d'accueil avec les cartes interactives permettant d'accéder
  * aux différentes sections de l'application (étudiants, enseignants, cours).
  * 
- * Note: Ce fichier est inclus dans main.inc.php qui charge déjà head.php et footer.php,
+ * Note: This file est inclus dans main.inc.php qui charge déjà head.php et footer.php,
  * donc on génère uniquement le contenu, pas un document HTML complet.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);

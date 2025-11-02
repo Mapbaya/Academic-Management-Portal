@@ -1,15 +1,15 @@
 <?php
 /**
- * Contrôleur de modification d'un enseignant
+ * Modification controller d'un enseignant
  * 
- * Gère la modification d'un enseignant existant. Récupère l'enseignant par son ID,
+ * Manages la modification d'un enseignant existant. Retrieves l'enseignant par son ID,
  * valide et met à jour les données du formulaire, puis redirige vers la liste
- * avec un message de confirmation ou d'erreur.
+ * with a confirmation or error message.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/enseignant.class.php';
@@ -30,7 +30,7 @@ $error = '';
 $ens = null;
 
 /**
- * Vérification de la présence de l'ID dans l'URL
+ * Verification de la présence de l'ID dans l'URL
  */
 if (!isset($_GET['id'])) {
     die('ID manquant.');
@@ -38,7 +38,7 @@ if (!isset($_GET['id'])) {
 
 try {
     /**
-     * Récupère l'enseignant par son identifiant
+     * Retrieves l'enseignant par son identifiant
      * 
      * @param int|string $_GET['id'] Identifiant de l'enseignant
      */
@@ -48,7 +48,7 @@ try {
     }
 
     /**
-     * Traitement de la soumission du formulaire de modification
+     * Processing of submission du formulaire de modification
      */
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         /**

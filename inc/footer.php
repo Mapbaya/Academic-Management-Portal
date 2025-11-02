@@ -1,14 +1,14 @@
 <?php
 /**
- * Pied de page du site
+ * Site footer
  * 
- * Affiche le footer avec les liens réseaux sociaux et gère l'affichage
- * des messages de confirmation et d'erreur stockés en session.
+ * Displays the footer with social media links and manages the display
+ * of confirmation and error messages stored in session.
  * 
  * @package TD3
  * @subpackage Inc
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 ?>
@@ -17,12 +17,12 @@
 <div style="clear:both;"></div>
 
 <?php
-// Fermer la connexion si elle existe
+// Close connection if it exists
 if (isset($db) && $db) {
     $db = null;
 }
 
-// Messages de confirmation
+// Confirmation messages
 if (!empty($_SESSION['mesgs']['confirm']) && is_array($_SESSION['mesgs']['confirm'])) {
     foreach ($_SESSION['mesgs']['confirm'] as $mesg) {
 ?>
@@ -35,7 +35,7 @@ if (!empty($_SESSION['mesgs']['confirm']) && is_array($_SESSION['mesgs']['confir
     unset($_SESSION['mesgs']['confirm']);
 }
 
-// Messages d'erreur
+// Error messages
 if (!empty($_SESSION['mesgs']['errors']) && is_array($_SESSION['mesgs']['errors'])) {
     foreach ($_SESSION['mesgs']['errors'] as $err) {
 ?>
@@ -50,7 +50,7 @@ if (!empty($_SESSION['mesgs']['errors']) && is_array($_SESSION['mesgs']['errors'
 ?>
 
 <script>
-    // Fermeture des messages d'alerte au clic sur le bouton X
+    // Close alert messages on X button click
     var close = document.getElementsByClassName("closebtn");
     for (var i = 0; i < close.length; i++) {
         close[i].onclick = function() {

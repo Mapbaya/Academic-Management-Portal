@@ -1,9 +1,9 @@
 <?php
 /**
- * Contrôleur d'ajout d'un module
+ * Controller forajout d'un module
  * 
- * Gère la création d'un nouveau module. Valide les données du formulaire,
- * crée le module puis redirige vers la liste avec un message de confirmation
+ * Manages the creation d'un nouveau module. Validates form data,
+ * creates le module puis redirige vers la liste avec un message de confirmation
  * ou d'erreur.
  * 
  * @package TD3

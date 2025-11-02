@@ -1,27 +1,27 @@
 <?php
 /**
- * Page de déconnexion de l'application
+ * Application logout page
  * 
- * Déconnecte l'utilisateur en nettoyant la session, affiche un message de confirmation
- * et redirige vers la page d'accueil.
+ * Logs out the user by clearing the session, displays a confirmation message
+ * and redirects to the home page.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 
-// Démarrage de la session si elle n'est pas déjà démarrée
+// Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Nettoyage des valeurs de session (garde la session active mais vide les données)
+// Clear session values (keeps session active but clears data)
 session_unset();
 
-// Ajout d'un message de confirmation à afficher après redirection
-$_SESSION['mesgs']['confirm'][] = 'Vous avez été correctement déconnecté';
+// Add confirmation message to display after redirect
+$_SESSION['mesgs']['confirm'][] = 'You have been successfully logged out';
 
-// Redirection vers la page d'accueil
+// Redirect to home page
 header('Location: index.php');
-exit; // Arrêt de l'exécution du script après redirection
+exit; // Stop script execution after redirect

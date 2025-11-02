@@ -1,14 +1,14 @@
 <?php
 /**
- * Contrôleur d'ajout d'un cours
+ * Controller forajout d'un cours
  * 
- * Gère la création d'un nouveau cours. Permet également de créer un nouveau module
+ * Manages the creation d'un nouveau cours. Permet également de createsr un nouveau module
  * ou une nouvelle matière si nécessaire lors de la création du cours.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/cours.class.php';

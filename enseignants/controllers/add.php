@@ -1,15 +1,15 @@
 <?php
 /**
- * Contrôleur d'ajout d'un enseignant
+ * Controller forajout d'un enseignant
  * 
- * Gère la création d'un nouvel enseignant. Valide les données du formulaire,
- * crée l'enseignant ainsi que l'utilisateur associé, et redirige vers la liste
- * avec un message de confirmation ou d'erreur.
+ * Manages the creation of a new enseignant. Validates form data,
+ * creates l'enseignant ainsi que associated user, and redirects to the list
+ * with a confirmation or error message.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__).'/../../class/enseignant.class.php';
@@ -23,12 +23,12 @@ require_once dirname(__FILE__).'/../../lib/myproject.lib.php';
 $error='';
 
 /**
- * Traitement de la soumission du formulaire
+ * Processing of submission du formulaire
  */
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     try {
         /**
-         * Crée un nouvel enseignant avec les données du formulaire
+         * Creates un nouvel enseignant avec les données du formulaire
          * Les noms, prénoms et villes sont automatiquement capitalisés
          * 
          * @var Enseignant
@@ -43,9 +43,9 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         ]);
         
         /**
-         * Crée l'enseignant et l'utilisateur associé
+         * Creates l'enseignant et associated user
          * 
-         * @param string $username Nom d'utilisateur
+         * @param string $username Username
          * @param string $password Mot de passe (sera hashé en MD5)
          */
         $ens->create($_POST['username'], $_POST['password']);

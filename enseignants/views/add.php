@@ -11,7 +11,7 @@
         </div>
         <label>Code postal</label><input class="w3-input" type="text" name="zipcode">
         <label>Ville</label><input class="w3-input" type="text" name="town">
-        <label>Nom d'utilisateur</label><input class="w3-input" type="text" name="username" required>
+        <label>Username</label><input class="w3-input" type="text" name="username" required>
         <label>Mot de passe</label><input class="w3-input" type="password" name="password" required>
         <div class="w3-margin-top">
             <button type="submit" class="w3-button w3-green">Créer</button>

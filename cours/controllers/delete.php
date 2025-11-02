@@ -1,14 +1,14 @@
 <?php
 /**
- * Contrôleur de suppression d'un cours
+ * Delete controller d'un cours
  * 
- * Gère la suppression d'un cours par son ID. Vérifie l'existence du cours,
+ * Manages la suppression d'un cours par son ID. Checks l'existence du cours,
  * le supprime puis redirige vers la liste des cours.
  * 
  * @package TD3
  * @subpackage Controllers
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 require_once dirname(__FILE__) . '/../../class/cours.class.php';

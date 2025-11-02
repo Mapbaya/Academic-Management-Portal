@@ -1,27 +1,27 @@
 <?php
 /**
- * Classe permettant de gérer l'entité Étudiant
+ * Class for managing l'entité Étudiant
  * 
  * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les étudiants.
- * Elle permet également de créer l'utilisateur associé lors de la création d'un étudiant.
+ * Elle permet également de createsr associated user lors de la création d'un étudiant.
  * 
  * @package TD3
  * @subpackage Class
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);
 
 /**
- * Classe Étudiant
+ * Class Étudiant
  * 
  * Représente un étudiant dans le système avec toutes ses propriétés
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 class Etudiant
@@ -62,7 +62,7 @@ class Etudiant
     /** @var string|null Ville */
     private ?string $town = null;
     
-    /** @var int|null Identifiant de l'utilisateur associé dans la table mp_users */
+    /** @var int|null Identifiant de associated user dans la table mp_users */
     private ?int $fk_user = null;
 
     /**
@@ -80,7 +80,7 @@ class Etudiant
      * 
      * @param array<string, mixed> $data Tableau associatif contenant les données de l'étudiant
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __construct(array $data = [])
     {
@@ -100,7 +100,7 @@ class Etudiant
      * @return mixed Valeur de l'attribut
      * @throws Exception Si l'attribut n'existe pas
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __get(string $att)
     {
@@ -120,7 +120,7 @@ class Etudiant
      * @return void
      * @throws Exception Si l'attribut n'existe pas
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __set(string $att, $val)
     {
@@ -134,12 +134,12 @@ class Etudiant
     /**
      * Établit une connexion PDO à la base de données
      * 
-     * Crée et retourne une instance PDO configurée pour la base de données r301project.
+     * Creates et retourne une instance PDO configurée pour la base de données r301project.
      * 
      * @return PDO Instance PDO configurée
      * @throws PDOException Si la connexion à la base de données échoue
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     private static function getPDO(): PDO
     {
@@ -156,20 +156,20 @@ class Etudiant
     }
 
     /**
-     * Crée un nouvel étudiant et son utilisateur associé
+     * Creates un nouvel étudiant et son utilisateur associé
      * 
-     * Cette méthode effectue une transaction pour créer simultanément :
+     * Cette méthode effectue une transaction pour createsr simultanément :
      * - Un utilisateur dans la table mp_users
      * - Un étudiant dans la table mp_etudiants
      * 
      * La transaction garantit que les deux créations sont atomiques.
      * 
-     * @param string $username Nom d'utilisateur pour le compte associé
-     * @param string $password Mot de passe en clair (sera hashé en MD5)
+     * @param string $username Username pour le compte associé
+     * @param string $password Password in plain text (sera hashé en MD5)
      * @return bool true si la création réussit
      * @throws Exception Si le nom d'utilisateur existe déjà ou si une erreur survient
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function create(string $username, string $password): bool
     {
@@ -177,11 +177,11 @@ class Etudiant
         try {
             $pdo->beginTransaction();
 
-            // Vérifie si le user existe déjà
+            // Checks si le user existe déjà
             $stmt = $pdo->prepare("SELECT rowid FROM mp_users WHERE username = :u");
             $stmt->execute([':u' => $username]);
             if ($stmt->fetch()) {
-                throw new Exception("Nom d'utilisateur déjà pris");
+                throw new Exception("Username déjà pris");
             }
 
             // Création user
@@ -229,7 +229,7 @@ class Etudiant
     }
 
     /**
-     * Récupère un étudiant par son identifiant ou son numéro d'étudiant
+     * Retrieves un étudiant par son identifiant ou son numéro d'étudiant
      * 
      * Recherche un étudiant dans la base de données en utilisant soit son rowid (identifiant),
      * soit son numetu (numéro d'étudiant). Si la valeur est numérique, la recherche se fait par rowid,
@@ -237,9 +237,9 @@ class Etudiant
      * 
      * @param int|string $idOrNum Identifiant (int) ou numéro d'étudiant (string)
      * @return Etudiant|null L'étudiant trouvé ou null si aucun résultat
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetch(int|string $idOrNum): ?Etudiant
     {
@@ -259,14 +259,14 @@ class Etudiant
     }
 
     /**
-     * Récupère tous les étudiants de la base de données
+     * Retrieves tous les étudiants de la base de données
      * 
      * Retourne une liste de tous les étudiants triés par nom de famille puis par prénom.
      * 
      * @return array<Etudiant> Tableau d'objets Etudiant
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetchAll(): array
     {
@@ -286,9 +286,9 @@ class Etudiant
      * @param array<string, string> $criteria Tableau associatif des critères de recherche
      *                                        (ex: ['firstname' => 'Jean', 'year' => '1'])
      * @return array<Etudiant> Tableau d'objets Etudiant correspondant aux critères
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function find(array $criteria = []): array
     {
@@ -318,11 +318,11 @@ class Etudiant
      * Met à jour toutes les propriétés de l'étudiant (sauf rowid et fk_user).
      * L'étudiant doit avoir un rowid valide.
      * 
-     * @return bool true si la mise à jour réussit
+     * @return bool true si la update réussit
      * @throws Exception Si le rowid est manquant
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function update(): bool
     {
@@ -362,15 +362,15 @@ class Etudiant
     /**
      * Supprime l'étudiant de la base de données
      * 
-     * Supprime l'étudiant et optionnellement l'utilisateur associé.
+     * Supprime l'étudiant et optionnellement associated user.
      * L'opération est effectuée dans une transaction pour garantir la cohérence.
      * 
-     * @param bool $deleteUser Si true, supprime également l'utilisateur associé (par défaut: true)
+     * @param bool $deleteUser Si true, supprime également associated user (by default: true)
      * @return bool true si la suppression réussit
      * @throws Exception Si le rowid est manquant
      * @throws Exception Si une erreur survient lors de la suppression
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function delete(bool $deleteUser = true): bool
     {
@@ -406,7 +406,7 @@ class Etudiant
      * 
      * @return array<string, mixed> Tableau associatif contenant toutes les propriétés
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function toArray(): array
     {

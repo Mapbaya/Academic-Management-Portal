@@ -1,15 +1,15 @@
 <?php
 /**
- * Navigation principale du site (barre de menu en haut)
+ * Main site navigation (top menu bar)
  * 
- * Affiche la barre de navigation avec les menus déroulants pour accéder
- * aux différentes sections de l'application (étudiants, enseignants, cours).
- * Inclut également le menu utilisateur avec déconnexion.
+ * Displays the navigation bar with dropdown menus to access
+ * different sections of the application (students, teachers, courses).
+ * Also includes the user menu with logout option.
  * 
  * @package TD3
  * @subpackage Inc
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 ?>

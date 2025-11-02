@@ -1,29 +1,29 @@
 <?php
 /**
- * Bibliothèque de fonctions utilitaires du projet TD3
+ * TD3 project utility functions library
  * 
- * Ce fichier contient des fonctions utilitaires utilisées dans tout le projet,
- * notamment pour la gestion des paramètres GET/POST et la manipulation de chaînes.
+ * This file contains utility functions used throughout the project,
+ * particularly for GET/POST parameter management and string manipulation.
  * 
  * @package TD3
  * @subpackage Lib
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 
 require_once(dirname(__FILE__) . '/../vendor/autoload.php');
 
 /**
- * Récupère un paramètre depuis $_POST ou $_GET
+ * Retrieves a parameter from $_POST or $_GET
  * 
- * Cherche d'abord dans $_POST, puis dans $_GET si le paramètre n'est pas trouvé.
- * Retourne null si le paramètre est vide ou inexistant.
+ * Searches first in $_POST, then in $_GET if the parameter is not found.
+ * Returns null if the parameter is empty or non-existent.
  * 
- * @param string $paramname Nom du paramètre à récupérer
- * @return mixed|null Valeur du paramètre ou null si non trouvé ou vide
+ * @param string $paramname Name of the parameter to retrieve
+ * @return mixed|null Parameter value or null if not found or empty
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  */
 function GETPOST($paramname)
 {
@@ -35,15 +35,15 @@ function GETPOST($paramname)
 }
 
 /**
- * Vérifie si un paramètre existe dans $_POST ou $_GET
+ * Checks if a parameter exists in $_POST or $_GET
  * 
- * Vérifie la présence d'un paramètre dans $_POST ou $_GET,
- * sans tenir compte de sa valeur (même si elle est vide).
+ * Checks for the presence of a parameter in $_POST or $_GET,
+ * regardless of its value (even if it is empty).
  * 
- * @param string $paramname Nom du paramètre à vérifier
- * @return bool true si le paramètre existe dans $_POST ou $_GET, false sinon
+ * @param string $paramname Name of the parameter to check
+ * @return bool true if the parameter exists in $_POST or $_GET, false otherwise
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  */
 function GETPOSTISSET($paramname)
 {
@@ -51,16 +51,16 @@ function GETPOSTISSET($paramname)
 }
 
 /**
- * Capitalise la première lettre d'un nom/prénom
+ * Capitalizes the first letter of a name/first name
  * 
- * Met en forme un nom ou prénom en mettant la première lettre en majuscule
- * et le reste en minuscule. Utilise mb_convert_case pour gérer correctement
- * les caractères UTF-8 (accents, caractères spéciaux).
+ * Formats a name or first name by capitalizing the first letter
+ * and making the rest lowercase. Uses mb_convert_case to correctly handle
+ * UTF-8 characters (accents, special characters).
  * 
- * @param string|null $name Le nom/prénom à capitaliser
- * @return string Le nom avec la première lettre en majuscule, chaîne vide si null ou vide
+ * @param string|null $name The name/first name to capitalize
+ * @return string The name with the first letter capitalized, empty string if null or empty
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  */
 function capitalizeName(?string $name): string {
     if (empty($name)) {

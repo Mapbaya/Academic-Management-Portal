@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe permettant de gérer l'entité Cours
+ * Class for managing l'entité Cours
  * 
  * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les cours.
  * Un cours contient une date, une matière, un enseignant, un groupe TD, un groupe TP et une salle.
@@ -8,20 +8,20 @@
  * @package TD3
  * @subpackage Class
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);
 
 /**
- * Classe Cours
+ * Class Cours
  * 
  * Représente un cours dans le système avec toutes ses propriétés
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 class Cours
@@ -61,7 +61,7 @@ class Cours
      * 
      * @param array<string, mixed> $data Tableau associatif contenant les données du cours
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __construct(array $data = [])
     {
@@ -75,12 +75,12 @@ class Cours
     /**
      * Établit une connexion PDO à la base de données
      * 
-     * Crée et retourne une instance PDO configurée pour la base de données r301project.
+     * Creates et retourne une instance PDO configurée pour la base de données r301project.
      * 
      * @return PDO Instance PDO configurée
      * @throws PDOException Si la connexion à la base de données échoue
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     private static function getPDO(): PDO
     {
@@ -97,15 +97,15 @@ class Cours
     }
 
     /**
-     * Crée un nouveau cours dans la base de données
+     * Creates un nouveau cours dans la base de données
      * 
      * Insère un nouveau cours avec toutes ses informations dans la table mp_cours.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
      * 
      * @return bool true si la création réussit
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function create(): bool
     {
@@ -127,15 +127,15 @@ class Cours
     }
 
     /**
-     * Récupère tous les cours de la base de données
+     * Retrieves tous les cours de la base de données
      * 
      * Retourne une liste de tous les cours avec les informations associées
      * (nom de la matière et nom de l'enseignant) triés par date décroissante.
      * 
      * @return array<Cours> Tableau d'objets Cours
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetchAll(): array
     {
@@ -162,9 +162,9 @@ class Cours
      * @param array<string, string> $criteria Tableau associatif des critères de recherche
      *                                        (ex: ['salle' => 'A101', 'groupe_td' => 'TD1'])
      * @return array<Cours> Tableau d'objets Cours correspondant aux critères
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function find(array $criteria = []): array
     {
@@ -196,15 +196,15 @@ class Cours
     }
 
     /**
-     * Récupère un cours par son identifiant
+     * Retrieves un cours par son identifiant
      * 
      * Recherche un cours dans la base de données en utilisant son rowid.
      * 
      * @param int $id Identifiant unique du cours
      * @return Cours|null Le cours trouvé ou null si aucun résultat
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetch(int $id): ?Cours
     {
@@ -220,15 +220,15 @@ class Cours
      * 
      * Met à jour toutes les propriétés du cours. Le cours doit avoir un rowid valide.
      * 
-     * @return bool true si la mise à jour réussit
+     * @return bool true si la update réussit
      * @throws Exception Si le rowid est manquant
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function update(): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour la mise à jour");
+        if (!$this->rowid) throw new Exception("Rowid manquant pour la update");
 
         $pdo = self::getPDO();
         $stmt = $pdo->prepare("
@@ -259,9 +259,9 @@ class Cours
      * 
      * @return bool true si la suppression réussit
      * @throws Exception Si le rowid est manquant
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function delete(): bool
     {

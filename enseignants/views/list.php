@@ -1,6 +1,6 @@
 <?php
 /**
- * Vue de la liste des enseignants
+ * Vue of the list des enseignants
  * Affiche la liste des enseignants avec filtres et actions
  * 
  * @package TD3

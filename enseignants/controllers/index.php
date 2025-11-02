@@ -14,7 +14,7 @@
 require_once dirname(__FILE__) . '/../../class/enseignant.class.php';
 
 /**
- * Récupération du nombre total d'enseignants pour affichage
+ * Retrieval du nombre total d'enseignants pour affichage
  * 
  * @var int Nombre total d'enseignants dans la base de données
  */

@@ -1,27 +1,27 @@
 <?php
 /**
- * Classe permettant de gérer l'entité Enseignant
+ * Class for managing l'entité Enseignant
  * 
  * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les enseignants.
- * Elle permet également de créer l'utilisateur associé lors de la création d'un enseignant.
+ * Elle permet également de createsr associated user lors de la création d'un enseignant.
  * 
  * @package TD3
  * @subpackage Class
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);
 
 /**
- * Classe Enseignant
+ * Class Enseignant
  * 
  * Représente un enseignant dans le système avec toutes ses propriétés
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 class Enseignant
@@ -47,7 +47,7 @@ class Enseignant
     /** @var string|null Ville */
     private ?string $town = null;
     
-    /** @var int|null Identifiant de l'utilisateur associé dans la table mp_users */
+    /** @var int|null Identifiant de associated user dans la table mp_users */
     private ?int $fk_user = null;
 
     /**
@@ -58,7 +58,7 @@ class Enseignant
      * 
      * @param array<string, mixed> $data Tableau associatif contenant les données de l'enseignant
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __construct(array $data = [])
     {
@@ -77,7 +77,7 @@ class Enseignant
      * @param string $att Nom de l'attribut à récupérer
      * @return mixed Valeur de l'attribut ou null si inexistant
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __get(string $att) { return $this->$att ?? null; }
     
@@ -90,19 +90,19 @@ class Enseignant
      * @param mixed $val Valeur à assigner à la propriété
      * @return void
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __set(string $att, $val) { $this->$att = $val; }
 
     /**
      * Établit une connexion PDO à la base de données
      * 
-     * Crée et retourne une instance PDO configurée pour la base de données r301project.
+     * Creates et retourne une instance PDO configurée pour la base de données r301project.
      * 
      * @return PDO Instance PDO configurée
      * @throws PDOException Si la connexion à la base de données échoue
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     private static function getPDO(): PDO
     {
@@ -118,20 +118,20 @@ class Enseignant
     }
 
     /**
-     * Crée un nouvel enseignant et son utilisateur associé
+     * Creates un nouvel enseignant et son utilisateur associé
      * 
-     * Cette méthode effectue une transaction pour créer simultanément :
+     * Cette méthode effectue une transaction pour createsr simultanément :
      * - Un utilisateur dans la table mp_users
      * - Un enseignant dans la table mp_enseignants
      * 
      * La transaction garantit que les deux créations sont atomiques.
      * 
-     * @param string $username Nom d'utilisateur pour le compte associé
-     * @param string $password Mot de passe en clair (sera hashé en MD5)
+     * @param string $username Username pour le compte associé
+     * @param string $password Password in plain text (sera hashé en MD5)
      * @return bool true si la création réussit
      * @throws Exception Si le nom d'utilisateur existe déjà ou si une erreur survient
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function create(string $username, string $password): bool
     {
@@ -139,10 +139,10 @@ class Enseignant
         try {
             $pdo->beginTransaction();
 
-            // Vérifie si le user existe déjà
+            // Checks si le user existe déjà
             $stmt = $pdo->prepare("SELECT rowid FROM mp_users WHERE username=:u");
             $stmt->execute([':u'=>$username]);
-            if ($stmt->fetch()) throw new Exception("Nom d'utilisateur déjà pris");
+            if ($stmt->fetch()) throw new Exception("Username déjà pris");
 
             // Création user
             $stmt = $pdo->prepare("
@@ -185,7 +185,7 @@ class Enseignant
     }
 
     /**
-     * Récupère un enseignant par son identifiant ou son identifiant utilisateur
+     * Retrieves un enseignant par son identifiant ou son identifiant utilisateur
      * 
      * Recherche un enseignant dans la base de données en utilisant soit son rowid (identifiant),
      * soit son fk_user (identifiant utilisateur). Si la valeur est numérique, la recherche se fait par rowid,
@@ -193,9 +193,9 @@ class Enseignant
      * 
      * @param int|string $idOrNum Identifiant (int) ou identifiant utilisateur (string)
      * @return Enseignant|null L'enseignant trouvé ou null si aucun résultat
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetch(int|string $idOrNum): ?Enseignant
     {
@@ -210,14 +210,14 @@ class Enseignant
     }
 
     /**
-     * Récupère tous les enseignants de la base de données
+     * Retrieves tous les enseignants de la base de données
      * 
      * Retourne une liste de tous les enseignants triés par nom de famille puis par prénom.
      * 
      * @return array<Enseignant> Tableau d'objets Enseignant
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetchAll(): array
     {
@@ -235,9 +235,9 @@ class Enseignant
      * @param array<string, string> $criteria Tableau associatif des critères de recherche
      *                                        (ex: ['firstname' => 'Jean', 'town' => 'Lille'])
      * @return array<Enseignant> Tableau d'objets Enseignant correspondant aux critères
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function find(array $criteria=[]): array
     {
@@ -260,11 +260,11 @@ class Enseignant
      * Met à jour toutes les propriétés de l'enseignant (sauf rowid et fk_user).
      * L'enseignant doit avoir un rowid valide.
      * 
-     * @return bool true si la mise à jour réussit
+     * @return bool true si la update réussit
      * @throws Exception Si le rowid est manquant
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function update(): bool
     {
@@ -289,15 +289,15 @@ class Enseignant
     /**
      * Supprime l'enseignant de la base de données
      * 
-     * Supprime l'enseignant et optionnellement l'utilisateur associé.
+     * Supprime l'enseignant et optionnellement associated user.
      * L'opération est effectuée dans une transaction pour garantir la cohérence.
      * 
-     * @param bool $deleteUser Si true, supprime également l'utilisateur associé (par défaut: true)
+     * @param bool $deleteUser Si true, supprime également associated user (by default: true)
      * @return bool true si la suppression réussit
      * @throws Exception Si le rowid est manquant
      * @throws Exception Si une erreur survient lors de la suppression
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function delete(bool $deleteUser=true): bool
     {
@@ -327,7 +327,7 @@ class Enseignant
      * 
      * @return array<string, mixed> Tableau associatif contenant toutes les propriétés
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function toArray(): array
     {

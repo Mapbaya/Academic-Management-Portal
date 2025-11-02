@@ -1,9 +1,9 @@
 <?php
 /**
- * Contrôleur de modification d'un module
+ * Modification controller d'un module
  * 
- * Gère la modification d'un module existant. Récupère le module par son ID,
- * met à jour ses informations et redirige vers la liste des modules.
+ * Manages la modification d'un module existant. Récupère le module par son ID,
+ * met à jour ses informations and redirects to the list des modules.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -14,7 +14,7 @@
 require_once dirname(__FILE__) . '/../../class/module.class.php';
 
 /**
- * Récupération de l'identifiant du module à modifier
+ * Retrieval de l'identifiant du module à modifier
  * 
  * @var int|null Identifiant unique du module
  */

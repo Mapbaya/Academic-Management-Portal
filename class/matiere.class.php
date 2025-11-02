@@ -1,6 +1,6 @@
 <?php
 /**
- * Classe permettant de gérer l'entité Matière
+ * Class for managing l'entité Matière
  * 
  * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) sur les matières.
  * Une matière est associée à un module et possède un numéro, un nom et un coefficient.
@@ -8,20 +8,20 @@
  * @package TD3
  * @subpackage Class
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 declare(strict_types=1);
 
 /**
- * Classe Matiere
+ * Class Matiere
  * 
  * Représente une matière dans le système avec toutes ses propriétés
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 class Matiere {
@@ -51,7 +51,7 @@ class Matiere {
      * 
      * @param array<string, mixed> $data Tableau associatif contenant les données de la matière
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function __construct(array $data = []) {
         foreach ($data as $k => $v) {
@@ -62,15 +62,15 @@ class Matiere {
     }
 
     /**
-     * Crée une nouvelle matière dans la base de données
+     * Creates une nouvelle matière dans la base de données
      * 
      * Insère une nouvelle matière avec toutes ses informations dans la table mp_matieres.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
      * 
      * @return void
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function create() {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -88,16 +88,16 @@ class Matiere {
     }
 
     /**
-     * Récupère une matière par son identifiant
+     * Retrieves une matière par son identifiant
      * 
      * Recherche une matière dans la base de données en utilisant son rowid.
      * Inclut également le nom du module associé.
      * 
      * @param int $id Identifiant unique de la matière
      * @return Matiere|null La matière trouvée ou null si aucun résultat
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetch(int $id): ?Matiere {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -113,15 +113,15 @@ class Matiere {
     }
 
     /**
-     * Récupère toutes les matières de la base de données
+     * Retrieves toutes les matières de la base de données
      * 
      * Retourne une liste de toutes les matières avec le nom du module associé,
      * triées par nom alphabétique.
      * 
      * @return array<Matiere> Tableau d'objets Matiere
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function fetchAll(): array {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -147,9 +147,9 @@ class Matiere {
      * @param array<string, string> $criteria Tableau associatif des critères de recherche
      *                                        (ex: ['name' => 'Mathématiques', 'num_matiere' => 'MATH'])
      * @return array<Matiere> Tableau d'objets Matiere correspondant aux critères
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public static function find(array $criteria = []): array {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -177,9 +177,9 @@ class Matiere {
      * Met à jour toutes les propriétés de la matière. La matière doit avoir un rowid valide.
      * 
      * @return void
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function update() {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');
@@ -206,9 +206,9 @@ class Matiere {
      * Supprime la matière correspondante à l'identifiant rowid de l'objet.
      * 
      * @return void
-     * @throws PDOException Si une erreur de base de données survient
+     * @throws PDOException If a database error occurs
      * @author Kime Marwa
-     * @since 2 novembre 2025
+     * @since November 2, 2025
      */
     public function delete() {
         $db = require(dirname(__FILE__) . '/../lib/mypdo.php');

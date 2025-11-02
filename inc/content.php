@@ -1,48 +1,48 @@
 <?php
 /**
- * Gestion du routage principal du projet (structure MVC)
+ * Main project routing management (MVC structure)
  * 
- * Ce fichier identifie quel contrôleur et quelle vue charger en fonction des paramètres
- * passés dans l'URL : 
- *   - element = dossier (ex: etudiants, enseignants, cours)
- *   - action  = fichier du contrôleur (ex: list, add, edit)
+ * This file identifies which controller and view to load based on parameters
+ * passed in the URL:
+ *   - element = directory (e.g., etudiants, enseignants, cours)
+ *   - action  = controller file (e.g., list, add, edit)
  * 
  * @package TD3
  * @subpackage Inc
  * @author Kime Marwa
- * @since 2 novembre 2025
+ * @since November 2, 2025
  * @version 1.0
  */
 
-// Récupération des paramètres GET ou POST
+// Retrieve GET or POST parameters
 $action  = GETPOST('action') ?? 'index';
-$element = GETPOST('element') ?? 'accueil'; // accueil par défaut
+$element = GETPOST('element') ?? 'accueil'; // home by default
 
-// ✅ Cas particulier : page d'accueil principale
+// Special case: main home page
 if ($element === 'accueil') {
     $home = dirname(__FILE__) . '/../views/index.php';
     if (is_file($home)) {
         include $home;
         return;
     } else {
-        echo "<div class='w3-container w3-red w3-padding'>Erreur : page d'accueil introuvable.</div>";
+        echo "<div class='w3-container w3-red w3-padding'>Error: home page not found.</div>";
         return;
     }
 }
 
-// Construction des chemins vers contrôleur et vue
+// Build paths to controller and view
 $target_c = dirname(__FILE__) . "/../$element/controllers/$action.php";
 $target_v = dirname(__FILE__) . "/../$element/views/$action.php";
 
-// ✅ Si le contrôleur existe
+// If controller exists
 if (is_file($target_c)) {
     include $target_c;
 
-    // ✅ Affiche la vue associée si elle existe
+    // Display associated view if it exists
     if (is_file($target_v)) {
         include $target_v;
     }
 } else {
-    // 🔻 Page non trouvée
+    // Page not found
     include dirname(__FILE__) . '/notfound.php';
 }
