@@ -3,7 +3,7 @@
  * Class for managing l'entité Étudiant
  * 
  * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about étudiants.
- * Elle permet également de createsr the associated user lors de la création for a étudiant.
+ * It also allows creating the associated user during the creation of a étudiant.
  * 
  * @package TD3
  * @subpackage Class
@@ -97,7 +97,7 @@ class Etudiant
      * Allows reading private properties of the class.
      * 
      * @param string $att Nom de l'attribut à récupérer
-     * @return mixed Valeur de l'attribut
+     * @return mixed Attribute value
      * @throws Exception Si l'attribut n'existe pas
      * @author Kime Marwa
      * @since November 2, 2025
@@ -137,7 +137,7 @@ class Etudiant
      * Creates et retourne une instance PDO configurée pour la base de données r301project.
      * 
      * @return PDO Instance PDO configurée
-     * @throws PDOException Si la connexion à la base de données échoue
+     * @throws PDOException If the connection to the database fails
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -159,14 +159,14 @@ class Etudiant
      * Creates un nouvel étudiant et son utilisateur associé
      * 
      * Cette méthode effectue une transaction pour createsr simultanément :
-     * - Un utilisateur dans la table mp_users
-     * - Un étudiant dans la table mp_etudiants
+     * - A user in the table mp_users
+     * - A student in the table mp_etudiants
      * 
-     * La transaction garantit que les deux créations sont atomiques.
+     * The transaction ensures that both creations are atomic.
      * 
      * @param string $username Username pour le compte associé
      * @param string $password Password in plain text (sera hashé en MD5)
-     * @return bool true si la création réussit
+     * @return bool true if creation succeeds
      * @throws Exception Si le nom d'utilisateur existe déjà ou si une erreur survient
      * @author Kime Marwa
      * @since November 2, 2025
@@ -236,7 +236,7 @@ class Etudiant
      * sinon par numetu.
      * 
      * @param int|string $idOrNum Identifiant (int) ou numéro d'étudiant (string)
-     * @return Etudiant|null L'étudiant trouvé ou null si aucun résultat
+     * @return Etudiant|null The student found or null if no result
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -318,7 +318,7 @@ class Etudiant
      * Updates all properties de l'étudiant (except rowid and fk_user).
      * L'étudiant doit avoir un rowid valide.
      * 
-     * @return bool true si la update réussit
+     * @return bool true if update succeeds
      * @throws Exception Si le rowid est manquant
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -326,7 +326,7 @@ class Etudiant
      */
     public function update(): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour update");
+        if (!$this->rowid) throw new Exception("Missing rowid for update");
 
         $pdo = self::getPDO();
         $sql = "UPDATE mp_etudiants SET
@@ -366,7 +366,7 @@ class Etudiant
      * L'opération est effectuée dans une transaction pour garantir la cohérence.
      * 
      * @param bool $deleteUser Si true, deletes également the associated user (by default: true)
-     * @return bool true si la suppression réussit
+     * @return bool true if deletion succeeds
      * @throws Exception Si le rowid est manquant
      * @throws Exception Si une erreur survient during deletion
      * @author Kime Marwa
@@ -374,7 +374,7 @@ class Etudiant
      */
     public function delete(bool $deleteUser = true): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour suppression");
+        if (!$this->rowid) throw new Exception("Missing rowid for deletion");
 
         $pdo = self::getPDO();
         try {

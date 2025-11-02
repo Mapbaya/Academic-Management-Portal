@@ -1,8 +1,8 @@
 <?php
 /**
- * Class for managing l'entité Matière
+ * Class for managing the Mati entityère
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about subjects.
+ * This class manages CRUD operations (Create, Read, Update, Delete) for subjects.
  * Une matière est associée à un module et possède un numéro, un nom et un coefficient.
  * 
  * @package TD3
@@ -94,7 +94,7 @@ class Matiere {
      * Inclut également le nom of the module associé.
      * 
      * @param int $id Unique identifier of the subject
-     * @return Matiere|null La matière trouvée ou null si aucun résultat
+     * @return Matiere|null The subject found or null if no result
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025

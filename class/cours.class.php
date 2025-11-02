@@ -1,8 +1,8 @@
 <?php
 /**
- * Class for managing l'entité Cours
+ * Class for managing the Cours entity
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about cours.
+ * This class manages CRUD operations (Create, Read, Update, Delete) for cours.
  * Un cours contient une date, une matière, un enseignant, un groupe TD, un groupe TP et une salle.
  * 
  * @package TD3
@@ -78,7 +78,7 @@ class Cours
      * Creates et retourne une instance PDO configurée pour la base de données r301project.
      * 
      * @return PDO Instance PDO configurée
-     * @throws PDOException Si la connexion à la base de données échoue
+     * @throws PDOException If the connection to the database fails
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -102,7 +102,7 @@ class Cours
      * Insère un nouveau cours avec toutes ses informations dans la table mp_cours.
      * L'identifiant rowid est automatiquement assigné après l'insertion.
      * 
-     * @return bool true si la création réussit
+     * @return bool true if creation succeeds
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -201,7 +201,7 @@ class Cours
      * Recherche un cours in the database en utilisant son rowid.
      * 
      * @param int $id Unique identifier of the course
-     * @return Cours|null Le cours trouvé ou null si aucun résultat
+     * @return Cours|null The course found or null if no result
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -220,7 +220,7 @@ class Cours
      * 
      * Updates all properties of the course. The course must have a valid rowid.
      * 
-     * @return bool true si la update réussit
+     * @return bool true if update succeeds
      * @throws Exception Si le rowid est manquant
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -228,7 +228,7 @@ class Cours
      */
     public function update(): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour la update");
+        if (!$this->rowid) throw new Exception("Missing rowid for update");
 
         $pdo = self::getPDO();
         $stmt = $pdo->prepare("
@@ -257,7 +257,7 @@ class Cours
      * 
      * Supprime le cours correspondant à l'identifiant rowid de l'objet.
      * 
-     * @return bool true si la suppression réussit
+     * @return bool true if deletion succeeds
      * @throws Exception Si le rowid est manquant
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -265,7 +265,7 @@ class Cours
      */
     public function delete(): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour suppression");
+        if (!$this->rowid) throw new Exception("Missing rowid for deletion");
         $pdo = self::getPDO();
         $stmt = $pdo->prepare("DELETE FROM mp_cours WHERE rowid = :id");
         return $stmt->execute([':id' => $this->rowid]);

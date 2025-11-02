@@ -1,9 +1,9 @@
 <?php
 /**
- * Class for managing l'entité Enseignant
+ * Class for managing the Enseignant entity
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about enseignants.
- * Elle permet également de createsr the associated user lors de la création for a enseignant.
+ * This class manages CRUD operations (Create, Read, Update, Delete) for enseignants.
+ * It also allows creating the associated user during the creation of a teacher.
  * 
  * @package TD3
  * @subpackage Class
@@ -75,7 +75,7 @@ class Enseignant
      * Allows reading private properties of the class.
      * 
      * @param string $att Nom de l'attribut à récupérer
-     * @return mixed Valeur de l'attribut ou null si inexistant
+     * @return mixed Attribute value or null if non-existent
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -100,7 +100,7 @@ class Enseignant
      * Creates et retourne une instance PDO configurée pour la base de données r301project.
      * 
      * @return PDO Instance PDO configurée
-     * @throws PDOException Si la connexion à la base de données échoue
+     * @throws PDOException If the connection to the database fails
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -121,13 +121,13 @@ class Enseignant
      * Creates un nouvel enseignant et son utilisateur associé
      * 
      * Cette méthode effectue une transaction pour createsr simultanément :
-     * - Un utilisateur dans la table mp_users
-     * - Un enseignant dans la table mp_enseignants
+     * - A user in the table mp_users
+     * - A teacher in the table mp_enseignants
      * 
-     * La transaction garantit que les deux créations sont atomiques.
+     * The transaction ensures that both creations are atomic.
      * 
-     * @param string $username Username pour le compte associé
-     * @param string $password Password in plain text (sera hashé en MD5)
+     * @param string $username Username for the associated account
+     * @param string $password Password in plain text (will be hashed in MD5)
      * @return bool true if creation succeeds
      * @throws Exception If username already exists or if an error occurs
      * @author Kime Marwa
@@ -192,7 +192,7 @@ class Enseignant
      * sinon par fk_user.
      * 
      * @param int|string $idOrNum Identifiant (int) ou identifiant utilisateur (string)
-     * @return Enseignant|null L'enseignant trouvé ou null si aucun résultat
+     * @return Enseignant|null The teacher found or null if no result
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -255,10 +255,10 @@ class Enseignant
     }
 
     /**
-     * Met à jour les informations of the teacher in the database
+     * Updates the information of the teacher in the database
      * 
      * Updates all properties of the teacher (except rowid and fk_user).
-     * L'enseignant doit avoir un rowid valide.
+     * The teacher must have a valid rowid.
      * 
      * @return bool true if update succeeds
      * @throws Exception If rowid is missing
@@ -268,7 +268,7 @@ class Enseignant
      */
     public function update(): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour update");
+        if (!$this->rowid) throw new Exception("Missing rowid for update");
         $pdo = self::getPDO();
         $stmt = $pdo->prepare("
             UPDATE mp_enseignants SET

@@ -1,8 +1,8 @@
 <?php
 /**
- * Class for managing l'entité Module
+ * Class for managing the Module entity
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about modules.
+ * This class manages CRUD operations (Create, Read, Update, Delete) for modules.
  * Un module possède un numéro, un nom et un coefficient.
  * 
  * @package TD3
@@ -129,7 +129,7 @@ class Module {
      * Recherche un module in the database en utilisant son rowid.
      * 
      * @param int $id Unique identifier of the module
-     * @return Module|null Le module trouvé ou null si aucun résultat
+     * @return Module|null The module found or null if no result
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
