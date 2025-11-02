@@ -1,0 +1,38 @@
+# Fichiers sensibles - NE PAS COMMITER
+.env
+.env.local
+.env.*.local
+
+# Dépendances Composer (à réinstaller avec composer install)
+/vendor/
+
+# Documentation générée (PHPDoc)
+/docs/
+.phpdoc/
+
+# Fichiers de cache et temporaires
+*.cache
+*.tmp
+*.log
+*.swp
+*.swo
+*~
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.zip
+*.tar.gz
+
+# Fichiers de test (si vous en ajoutez plus tard)
+test*.php
+*_test.php
+
+# Dossiers d'administration (si vide)
+/admin/
+
+# Scripts temporaires
+create_archive.php
+

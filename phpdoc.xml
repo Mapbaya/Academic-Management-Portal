@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor configVersion="3"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns="https://www.phpdoc.org"
+                xsi:noNamespaceSchemaLocation="data/xsd/phpdoc.xsd">
+    <title>Documentation Projet TD3</title>
+    <paths>
+        <output>docs</output>
+    </paths>
+    <version number="latest">
+        <folder>.</folder>
+        <api>
+            <source dsn=".">
+                <path>.</path>
+            </source>
+            <output>api</output>
+            <ignore hidden="true" symlinks="true">
+                <path>docs/**/*</path>
+                <path>tests/**/*</path>
+                <path>vendor/**/*</path>
+                <path>composer.*</path>
+                <path>.env</path>
+                <path>phpdoc.xml</path>
+            </ignore>
+            <extensions>
+                <extension>php</extension>
+            </extensions>
+        </api>
+    </version>
+</phpdocumentor>
