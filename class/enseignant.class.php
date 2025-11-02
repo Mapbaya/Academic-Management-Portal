@@ -128,8 +128,8 @@ class Enseignant
      * 
      * @param string $username Username pour le compte associé
      * @param string $password Password in plain text (sera hashé en MD5)
-     * @return bool true si la création réussit
-     * @throws Exception Si le nom d'utilisateur existe déjà ou si une erreur survient
+     * @return bool true if creation succeeds
+     * @throws Exception If username already exists or if an error occurs
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -260,8 +260,8 @@ class Enseignant
      * Updates all properties of the teacher (except rowid and fk_user).
      * L'enseignant doit avoir un rowid valide.
      * 
-     * @return bool true si la update réussit
-     * @throws Exception Si le rowid est manquant
+     * @return bool true if update succeeds
+     * @throws Exception If rowid is missing
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
      * @since November 2, 2025
@@ -292,16 +292,16 @@ class Enseignant
      * Deletes the teacher and optionally the associated user.
      * The operation is performed in a transaction to ensure consistency.
      * 
-     * @param bool $deleteUser Si true, deletes également the associated user (by default: true)
-     * @return bool true si la suppression réussit
-     * @throws Exception Si le rowid est manquant
-     * @throws Exception Si une erreur survient during deletion
+     * @param bool $deleteUser If true, also deletes the associated user (by default: true)
+     * @return bool true if deletion succeeds
+     * @throws Exception If rowid is missing
+     * @throws Exception If an error occurs during deletion
      * @author Kime Marwa
      * @since November 2, 2025
      */
     public function delete(bool $deleteUser=true): bool
     {
-        if (!$this->rowid) throw new Exception("Rowid manquant pour suppression");
+        if (!$this->rowid) throw new Exception("Missing rowid for deletion");
         $pdo = self::getPDO();
         try {
             $pdo->beginTransaction();
