@@ -16,7 +16,7 @@ declare(strict_types=1);
 /**
  * Class Cours
  * 
- * Représente un cours dans le système avec toutes ses propriétés
+ * Represents a cours in the system with all its properties
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
@@ -26,13 +26,13 @@ declare(strict_types=1);
  */
 class Cours
 {
-    /** @var int|null Identifiant du cours */
+    /** @var int|null Identifiant of the course */
     public ?int $rowid = null;
 
-    /** @var string|null Date du cours */
+    /** @var string|null Date of the course */
     public ?string $date_cours = null;
 
-    /** @var int|null ID de la matière */
+    /** @var int|null ID of the subject */
     public ?int $fk_matiere = null;
 
     /** @var int|null ID de l’enseignant */
@@ -47,7 +47,7 @@ class Cours
     /** @var string|null Salle */
     public ?string $salle = null;
 
-    /** @var string|null Nom affiché de la matière */
+    /** @var string|null Nom affiché of the subject */
     public ?string $matiere_name = null;
 
     /** @var string|null Nom affiché de l’enseignant */
@@ -57,9 +57,9 @@ class Cours
      * Constructeur de la classe Cours
      * 
      * Initialise un objet Cours avec les données fournies en paramètre.
-     * Seules les propriétés existantes sont assignées.
+     * Only existing properties are assigned.
      * 
-     * @param array<string, mixed> $data Tableau associatif contenant les données du cours
+     * @param array<string, mixed> $data Tableau associatif contenant les données of the course
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -130,7 +130,7 @@ class Cours
      * Retrieves tous les cours de la base de données
      * 
      * Retourne une liste de tous les cours avec les informations associées
-     * (nom de la matière et nom de l'enseignant) triés par date décroissante.
+     * (nom of the subject et nom of the teacher) triés par date décroissante.
      * 
      * @return array<Cours> Array of objects Cours
      * @throws PDOException If a database error occurs
@@ -200,7 +200,7 @@ class Cours
      * 
      * Recherche un cours in the database en utilisant son rowid.
      * 
-     * @param int $id Unique identifier du cours
+     * @param int $id Unique identifier of the course
      * @return Cours|null Le cours trouvé ou null si aucun résultat
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -216,9 +216,9 @@ class Cours
     }
 
     /**
-     * Met à jour les informations du cours in the database
+     * Met à jour les informations of the course in the database
      * 
-     * Met à jour toutes les propriétés du cours. Le cours doit avoir un rowid valide.
+     * Updates all properties of the course. The course must have a valid rowid.
      * 
      * @return bool true si la update réussit
      * @throws Exception Si le rowid est manquant

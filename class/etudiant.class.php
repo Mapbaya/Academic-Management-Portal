@@ -16,7 +16,7 @@ declare(strict_types=1);
 /**
  * Class Étudiant
  * 
- * Représente un étudiant dans le système avec toutes ses propriétés
+ * Represents a étudiant in the system with all its properties
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
@@ -76,7 +76,7 @@ class Etudiant
      * Constructeur de la classe Étudiant
      * 
      * Initialise un objet Étudiant avec les données fournies en paramètre.
-     * Seules les propriétés existantes sont assignées.
+     * Only existing properties are assigned.
      * 
      * @param array<string, mixed> $data Tableau associatif contenant les données de l'étudiant
      * @author Kime Marwa
@@ -92,9 +92,9 @@ class Etudiant
     }
 
     /**
-     * Méthode magique pour accéder aux propriétés privées
+     * Magic method to access private properties
      * 
-     * Permet de lire les propriétés privées de la classe.
+     * Allows reading private properties of the class.
      * 
      * @param string $att Nom de l'attribut à récupérer
      * @return mixed Valeur de l'attribut
@@ -113,9 +113,9 @@ class Etudiant
     /**
      * Méthode magique pour définir la valeur for ae propriété
      * 
-     * Permet de modifier les propriétés privées de la classe.
+     * Allows modifying private properties of the class.
      * 
-     * @param string $att Nom de la propriété à modifier
+     * @param string $att Name of the property to modify
      * @param mixed $val Valeur à assigner à la propriété
      * @return void
      * @throws Exception Si l'attribut n'existe pas
@@ -177,14 +177,14 @@ class Etudiant
         try {
             $pdo->beginTransaction();
 
-            // Checks si le user existe déjà
+            // Checks if the user already exists
             $stmt = $pdo->prepare("SELECT rowid FROM mp_users WHERE username = :u");
             $stmt->execute([':u' => $username]);
             if ($stmt->fetch()) {
                 throw new Exception("Username déjà pris");
             }
 
-            // Création user
+            // Create user
             $sqlUser = "INSERT INTO mp_users (username, password, firstname, lastname, date_created, admin)
                         VALUES (:u, :p, :f, :l, NOW(), 0)";
             $stmt = $pdo->prepare($sqlUser);
@@ -196,7 +196,7 @@ class Etudiant
             ]);
             $fk_user = (int)$pdo->lastInsertId();
 
-            // Création étudiant
+            // Create student
             $sqlEt = "INSERT INTO mp_etudiants (numetu, firstname, lastname, birthday, diploma, year, td, tp, adress, zipcode, town, fk_user)
                       VALUES (:numetu, :firstname, :lastname, :birthday, :diploma, :year, :td, :tp, :adress, :zipcode, :town, :fk_user)";
             $stmt = $pdo->prepare($sqlEt);
@@ -280,7 +280,7 @@ class Etudiant
      * Recherche dynamique d'étudiants selon des critères
      * 
      * Permet de rechercher des étudiants avec des critères multiples.
-     * Les valeurs contenant '%' sont traitées comme des recherches LIKE (pattern matching),
+     * Values containing '%' are treated as LIKE searches (pattern matching),
      * sinon comme des comparaisons d'égalité exacte.
      * 
      * @param array<string, string> $criteria Associative array of search criteria de recherche
@@ -315,7 +315,7 @@ class Etudiant
     /**
      * Met à jour les informations de l'étudiant in the database
      * 
-     * Met à jour toutes les propriétés de l'étudiant (sauf rowid et fk_user).
+     * Updates all properties de l'étudiant (except rowid and fk_user).
      * L'étudiant doit avoir un rowid valide.
      * 
      * @return bool true si la update réussit
@@ -380,11 +380,11 @@ class Etudiant
         try {
             $pdo->beginTransaction();
 
-            // Supprime étudiant
+            // Delete student
             $stmt = $pdo->prepare("DELETE FROM mp_etudiants WHERE rowid=:id");
             $stmt->execute([':id' => $this->rowid]);
 
-            // Supprime utilisateur associé
+            // Delete associated user
             if ($deleteUser && $this->fk_user) {
                 $stmt = $pdo->prepare("DELETE FROM mp_users WHERE rowid=:uid");
                 $stmt->execute([':uid' => $this->fk_user]);
@@ -401,10 +401,10 @@ class Etudiant
     /**
      * Convertit l'objet Étudiant en tableau associatif
      * 
-     * Retourne toutes les propriétés de l'étudiant sous forme de tableau associatif.
+     * Returns all properties de l'étudiant as an associative array.
      * Utile pour le sérialisation JSON ou le passage de données aux vues.
      * 
-     * @return array<string, mixed> Tableau associatif contenant toutes les propriétés
+     * @return array<string, mixed> Associative array containing all properties
      * @author Kime Marwa
      * @since November 2, 2025
      */

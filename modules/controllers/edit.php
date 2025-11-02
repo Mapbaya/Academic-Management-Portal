@@ -2,8 +2,8 @@
 /**
  * Edit controller for a module
  * 
- * Manages the modification for a module existing. Retrieves the module by its ID,
- * updates its information and redirects to the list des modules.
+ * Manages the modification of an existing module. Retrieves the module by its ID,
+ * updates its information and redirects to the list of modules.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -14,9 +14,9 @@
 require_once dirname(__FILE__) . '/../../class/module.class.php';
 
 /**
- * Retrieval of identifier du module à modifier
+ * Retrieval of the module identifier to modify
  * 
- * @var int|null Unique identifier du module
+ * @var int|null Unique identifier of the module
  */
 $id = $_GET['id'] ?? null;
 if (!$id) {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         // Data validation
         if (empty($mod->num_module) || empty($mod->name)) {
-            throw new Exception('Number and name du module are required.');
+            throw new Exception('Number and name of the module are required.');
         }
         
         if ($mod->coef < 0) {

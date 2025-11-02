@@ -1,9 +1,9 @@
 <?php
 /**
- * Edit controller for a enseignant
+ * Edit controller for a teacher
  * 
- * Manages the modification for a enseignant existing. Retrieves l'enseignant by its ID,
- * valide et met à jour les données du formulaire, then redirects vers the list
+ * Manages the modification of an existing teacher. Retrieves the teacher by its ID,
+ * validates and updates form data, then redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -16,31 +16,31 @@ require_once dirname(__FILE__) . '/../../class/enseignant.class.php';
 require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 
 /**
- * Variable pour stocker les messages d'erreur
+ * Variable to store error messages
  * 
- * @var string Message d'erreur éventuel
+ * @var string Possible error message
  */
 $error = '';
 
 /**
- * Variable pour stocker l'objet enseignant
+ * Variable to store the teacher object
  * 
- * @var Enseignant|null Objet enseignant à modifier
+ * @var Enseignant|null Teacher object to modify
  */
 $ens = null;
 
 /**
- * Verification de la présence de l'ID dans l'URL
+ * Verification of the presence of ID in the URL
  */
 if (!isset($_GET['id'])) {
-    die('ID manquant.');
+    die('Missing ID.');
 }
 
 try {
     /**
-     * Retrieves l'enseignant par son identifiant
+     * Retrieves the teacher by its identifier
      * 
-     * @param int|string $_GET['id'] Identifiant de l'enseignant
+     * @param int|string $_GET['id'] Identifier of the teacher
      */
     $ens = Enseignant::fetch($_GET['id']);
     if (!$ens) {
@@ -48,12 +48,12 @@ try {
     }
 
     /**
-     * Processing of submission du formulaire of modification
+     * Processing of form submission for modification
      */
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         /**
-         * Met à jour les propriétés de l'enseignant avec les données du formulaire
-         * Les noms, prénoms et villes sont automatiquement capitalisés
+         * Updates the properties of the teacher with form data
+         * Names, first names and cities are automatically capitalized
          */
         $ens->firstname = !empty($_POST['firstname']) ? capitalizeName($_POST['firstname']) : $ens->firstname;
         $ens->lastname  = !empty($_POST['lastname']) ? capitalizeName($_POST['lastname']) : $ens->lastname;
@@ -63,12 +63,12 @@ try {
         $ens->town      = !empty($_POST['town']) ? capitalizeName($_POST['town']) : $ens->town;
 
         /**
-         * Sauvegarde les modifications in the database
+         * Saves the modifications in the database
          */
         $ens->update();
 
         /**
-         * Redirige vers the list of teachers après modification réussie
+         * Redirects to the list of teachers after successful modification
          */
         header('Location: index.php?element=enseignants&action=list');
         exit;

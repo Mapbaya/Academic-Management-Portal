@@ -9,6 +9,6 @@
     </a>
 </div>
 
-<p>Sur cette page, vous pouvez consulter tous les étudiants existants, ajouter un nouvel étudiant ou gérer les étudiants déjà enregistrés.</p>
+<p>On this page, you can view all étudiants existants, add a new étudiant or manage étudiants already registered.</p>
 
 <p>Total étudiants enregistrés : <?= $totalEtudiants ?></p>

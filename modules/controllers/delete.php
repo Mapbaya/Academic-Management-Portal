@@ -2,8 +2,8 @@
 /**
  * Delete controller for a module
  * 
- * Manages the deletion for a module by its ID. Checks the existence du module,
- * verifies that it is not linked to subjects, puis le deletes and redirects to the list.
+ * Manages the deletion of a module by its ID. Checks the existence of the module,
+ * verifies that it is not linked to subjects, then deletes it and redirects to the list.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -15,9 +15,9 @@ require_once dirname(__FILE__) . '/../../class/module.class.php';
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Retrieval of identifier du module à deletesr
+ * Retrieval of the module identifier to delete
  * 
- * @var int|null Unique identifier du module
+ * @var int|null Unique identifier of the module
  */
 $id = $_GET['id'] ?? null;
 $error = '';
@@ -38,11 +38,11 @@ if ($id) {
         }
         
         if ($moduleHasMatieres) {
-            // Stocker l'erreur in session for display
+            // Store the error in session for display
             if (session_status() === PHP_SESSION_NONE) {
                 session_start();
             }
-            $_SESSION['mesgs']['errors'][] = 'Impossible de deletesr ce module because it is linked to one or more matières. Veuillez d\'abord deletesr ou modifier the associated subjects.';
+            $_SESSION['mesgs']['errors'][] = 'Cannot delete this module because it is linked to one or more subjects. Please first delete or modify the associated subjects.';
         } else {
             // Delete the module if no subject is linked
             try {
@@ -55,7 +55,7 @@ if ($id) {
                 if (session_status() === PHP_SESSION_NONE) {
                     session_start();
                 }
-                $_SESSION['mesgs']['errors'][] = 'Erreur during deletion : ' . $e->getMessage();
+                $_SESSION['mesgs']['errors'][] = 'Error during deletion: ' . $e->getMessage();
             }
         }
     } else {

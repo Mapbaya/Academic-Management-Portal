@@ -4,7 +4,7 @@
  * 
  * Manages the modification for ae matière existant ou la création for ae nouvelle matière.
  * Retrieves la matière par son ID (si édition), updates its information
- * and redirects to the list des matières.
+ * and redirects to the list des subjects.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -15,9 +15,9 @@
 require_once dirname(__FILE__) . '/../../class/matiere.class.php';
 
 /**
- * Retrieval of identifier de la matière à modifier (null si création)
+ * Retrieval of identifier of the subject to modify (null si création)
  * 
- * @var int|null Unique identifier de la matière ou null pour création
+ * @var int|null Unique identifier of the subject or null for creation
  */
 $id = $_GET['id'] ?? null;
 $matiere = $id ? Matiere::fetch((int)$id) : new Matiere();

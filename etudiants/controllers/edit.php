@@ -1,9 +1,9 @@
 <?php
 /**
- * Edit controller for a étudiant
+ * Edit controller for a student
  * 
- * Manages the modification for a étudiant existing. Retrieves l'étudiant by its ID,
- * valide et met à jour les données du formulaire, then redirects vers the list
+ * Manages the modification of an existing student. Retrieves the student by its ID,
+ * validates and updates form data, then redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -20,26 +20,26 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 $error = '';
 $etu = null;
 
-// ID en GET obligatoire pour identifier l'étudiant à modifier
+// ID in GET required to identify the student to modify
 $id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
 if ($id <= 0) {
-    $_SESSION['mesgs']['errors'][] = 'Identifiant invalide.';
+    $_SESSION['mesgs']['errors'][] = 'Invalid identifier.';
     header('Location: index.php?element=etudiants&action=list');
     exit;
 }
 
-// Retrieval of l'étudiant à modifier
+// Retrieval of the student to modify
 $etu = Etudiant::fetch($id);
 if (!$etu) {
-    $_SESSION['mesgs']['errors'][] = 'Étudiant introuvable.';
+    $_SESSION['mesgs']['errors'][] = 'Student not found.';
     header('Location: index.php?element=etudiants&action=list');
     exit;
 }
 
-// Processing of submission du formulaire (update)
+// Processing of form submission (update)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
-        // Update of properties de l'étudiant
+        // Update student properties
         $etu->numetu = $_POST['numetu'] ?? $etu->numetu;
         $etu->firstname = !empty($_POST['firstname']) ? capitalizeName($_POST['firstname']) : $etu->firstname;
         $etu->lastname = !empty($_POST['lastname']) ? capitalizeName($_POST['lastname']) : $etu->lastname;
@@ -54,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $etu->update();
 
-        // Confirmation message standardized
-        $_SESSION['mesgs']['confirm'][] = 'Étudiant mis à jour avec succès.';
+        // Standardized confirmation message
+        $_SESSION['mesgs']['confirm'][] = 'Student updated successfully.';
         header('Location: index.php?element=etudiants&action=list');
         exit;
     } catch (Exception $e) {
-        $error = 'Erreur lors de la update : ' . $e->getMessage();
+        $error = 'Error during update: ' . $e->getMessage();
         $_SESSION['mesgs']['errors'][] = $error;
     }
 }

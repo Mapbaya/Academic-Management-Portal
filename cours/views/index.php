@@ -10,5 +10,5 @@
 </div>
 
 <div class="w3-container w3-center">
-    <p>Sur cette page, vous pouvez consulter tous les cours existants, ajouter un nouveau cours ou gérer les cours déjà enregistrés.</p>
+    <p>On this page, you can view all cours existants, ajouter un nouveau cours or manage cours already registered.</p>
 </div>

@@ -9,6 +9,6 @@
     </a>
 </div>
 
-<p>Sur cette page, vous pouvez consulter tous les enseignants existants, ajouter un nouvel enseignant ou gérer les enseignants déjà enregistrés.</p>
+<p>On this page, you can view all enseignants existants, add a new enseignant or manage enseignants already registered.</p>
 
 <p>Total enseignants enregistrés : <?= $totalEnseignants ?></p>

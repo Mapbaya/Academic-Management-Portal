@@ -1,9 +1,9 @@
 <?php
 /**
- * Vue of modification for a module
+ * Edit view for a module
  * 
- * Displays the form of modification for a module with all its fields.
- * Permet de modifier le numéro, le nom et le coefficient du module.
+ * Displays the edit form for a module with all its fields.
+ * Allows modifying the number, name and coefficient of the module.
  * 
  * @package TD3
  * @subpackage Views
@@ -14,7 +14,7 @@
 ?>
 
 <div class="w3-container">
-    <h2 class="dtitle">Modifier un module</h2>
+    <h2 class="dtitle">Edit a module</h2>
 
     <?php if (isset($error) && !empty($error)): ?>
         <div class="w3-panel w3-red w3-display-container">
@@ -25,7 +25,7 @@
 
     <form method="post" class="w3-container w3-card-4 w3-padding">
         <div class="form-group">
-            <label for="num_module"><strong>Numéro du module :</strong></label>
+            <label for="num_module"><strong>Module number:</strong></label>
             <input 
                 class="w3-input w3-border" 
                 type="text" 
@@ -36,7 +36,7 @@
         </div>
 
         <div class="form-group">
-            <label for="name"><strong>Nom du module :</strong></label>
+            <label for="name"><strong>Module name:</strong></label>
             <input 
                 class="w3-input w3-border" 
                 type="text" 
@@ -61,10 +61,10 @@
 
         <div class="form-actions" style="margin-top: 20px;">
             <button class="w3-button w3-blue w3-round" type="submit">
-                <i class="fas fa-save"></i> Mettre à jour
+                <i class="fas fa-save"></i> Update
             </button>
             <a href="index.php?element=modules&action=list" class="w3-button w3-gray w3-round">
-                <i class="fas fa-undo"></i> Annuler
+                <i class="fas fa-undo"></i> Cancel
             </a>
         </div>
     </form>

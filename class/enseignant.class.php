@@ -16,7 +16,7 @@ declare(strict_types=1);
 /**
  * Class Enseignant
  * 
- * Représente un enseignant dans le système avec toutes ses propriétés
+ * Represents a enseignant in the system with all its properties
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
@@ -26,16 +26,16 @@ declare(strict_types=1);
  */
 class Enseignant
 {
-    /** @var int|null Unique identifier de l'enseignant in the database */
+    /** @var int|null Unique identifier of the teacher in the database */
     private ?int $rowid = null;
     
-    /** @var string|null Prénom de l'enseignant */
+    /** @var string|null Prénom of the teacher */
     private ?string $firstname = null;
     
-    /** @var string|null Nom de famille de l'enseignant */
+    /** @var string|null Nom de famille of the teacher */
     private ?string $lastname = null;
     
-    /** @var string|null Date de naissance de l'enseignant (format YYYY-MM-DD) */
+    /** @var string|null Date de naissance of the teacher (format YYYY-MM-DD) */
     private ?string $birthday = null;
     
     /** @var string|null Adresse postale */
@@ -54,9 +54,9 @@ class Enseignant
      * Constructeur de la classe Enseignant
      * 
      * Initialise un objet Enseignant avec les données fournies en paramètre.
-     * Seules les propriétés existantes sont assignées.
+     * Only existing properties are assigned.
      * 
-     * @param array<string, mixed> $data Tableau associatif contenant les données de l'enseignant
+     * @param array<string, mixed> $data Tableau associatif contenant les données of the teacher
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -70,9 +70,9 @@ class Enseignant
     }
 
     /**
-     * Méthode magique pour accéder aux propriétés privées
+     * Magic method to access private properties
      * 
-     * Permet de lire les propriétés privées de la classe.
+     * Allows reading private properties of the class.
      * 
      * @param string $att Nom de l'attribut à récupérer
      * @return mixed Valeur de l'attribut ou null si inexistant
@@ -84,9 +84,9 @@ class Enseignant
     /**
      * Méthode magique pour définir la valeur for ae propriété
      * 
-     * Permet de modifier les propriétés privées de la classe.
+     * Allows modifying private properties of the class.
      * 
-     * @param string $att Nom de la propriété à modifier
+     * @param string $att Name of the property to modify
      * @param mixed $val Valeur à assigner à la propriété
      * @return void
      * @author Kime Marwa
@@ -139,12 +139,12 @@ class Enseignant
         try {
             $pdo->beginTransaction();
 
-            // Checks si le user existe déjà
+            // Checks if the user already exists
             $stmt = $pdo->prepare("SELECT rowid FROM mp_users WHERE username=:u");
             $stmt->execute([':u'=>$username]);
             if ($stmt->fetch()) throw new Exception("Username déjà pris");
 
-            // Création user
+            // Create user
             $stmt = $pdo->prepare("
                 INSERT INTO mp_users (username,password,firstname,lastname,date_created,admin)
                 VALUES (:u,:p,:f,:l,NOW(),0)
@@ -157,7 +157,7 @@ class Enseignant
             ]);
             $fk_user = (int)$pdo->lastInsertId();
 
-            // Création enseignant
+            // Create teacher
             $stmt = $pdo->prepare("
                 INSERT INTO mp_enseignants (firstname,lastname,birthday,adress,zipcode,town,fk_user)
                 VALUES (:f,:l,:b,:a,:z,:t,:u)
@@ -255,9 +255,9 @@ class Enseignant
     }
 
     /**
-     * Met à jour les informations de l'enseignant in the database
+     * Met à jour les informations of the teacher in the database
      * 
-     * Met à jour toutes les propriétés de l'enseignant (sauf rowid et fk_user).
+     * Updates all properties of the teacher (except rowid and fk_user).
      * L'enseignant doit avoir un rowid valide.
      * 
      * @return bool true si la update réussit
@@ -287,10 +287,10 @@ class Enseignant
     }
 
     /**
-     * Supprime l'enseignant de la base de données
+     * Deletes the teacher from the database
      * 
-     * Supprime l'enseignant et optionnellement the associated user.
-     * L'opération est effectuée dans une transaction pour garantir la cohérence.
+     * Deletes the teacher and optionally the associated user.
+     * The operation is performed in a transaction to ensure consistency.
      * 
      * @param bool $deleteUser Si true, deletes également the associated user (by default: true)
      * @return bool true si la suppression réussit
@@ -322,10 +322,10 @@ class Enseignant
     /**
      * Convertit l'objet Enseignant en tableau associatif
      * 
-     * Retourne toutes les propriétés de l'enseignant sous forme de tableau associatif.
+     * Returns all properties of the teacher as an associative array.
      * Utile pour la sérialisation JSON ou le passage de données aux vues.
      * 
-     * @return array<string, mixed> Tableau associatif contenant toutes les propriétés
+     * @return array<string, mixed> Associative array containing all properties
      * @author Kime Marwa
      * @since November 2, 2025
      */

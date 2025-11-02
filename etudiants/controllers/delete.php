@@ -1,9 +1,9 @@
 <?php
 /**
- * Delete controller for a étudiant
+ * Delete controller for a student
  * 
- * Manages the deletion for a étudiant by its ID. Checks l'existence de l'étudiant,
- * deletes l'étudiant et the associated user, then redirects vers the list
+ * Manages the deletion of a student by its ID. Checks the existence of the student,
+ * deletes the student and the associated user, then redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -16,7 +16,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 
 require_once dirname(__FILE__) . '/../../class/etudiant.class.php';
 
-// Retrieval of l'ID de l'étudiant à deletesr
+// Retrieval of the student ID to delete
 $id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
 if ($id <= 0) {
     $_SESSION['mesgs']['errors'][] = 'Invalid identifier for deletion.';
@@ -24,10 +24,10 @@ if ($id <= 0) {
     exit;
 }
 
-// Verification de l'existence de l'étudiant
+// Verification of student existence
 $etu = Etudiant::fetch($id);
 if (!$etu) {
-    $_SESSION['mesgs']['errors'][] = 'Étudiant introuvable.';
+    $_SESSION['mesgs']['errors'][] = 'Student not found.';
     header('Location: index.php?element=etudiants&action=list');
     exit;
 }
@@ -35,9 +35,9 @@ if (!$etu) {
 try {
     // Also deletes the associated user by default (parameter true)
     $etu->delete(true);
-    $_SESSION['mesgs']['confirm'][] = 'Étudiant supprimé.';
+    $_SESSION['mesgs']['confirm'][] = 'Student deleted.';
 } catch (Exception $e) {
-    $_SESSION['mesgs']['errors'][] = 'Erreur during deletion : ' . $e->getMessage();
+    $_SESSION['mesgs']['errors'][] = 'Error during deletion: ' . $e->getMessage();
 }
 
 header('Location: index.php?element=etudiants&action=list');

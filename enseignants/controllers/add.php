@@ -1,9 +1,9 @@
 <?php
 /**
- * Controller forajout for a enseignant
+ * Add controller for a teacher
  * 
- * Manages the creation of a new enseignant. Validates form data,
- * creates l'enseignant ainsi que the associated user, and redirects to the list
+ * Manages the creation of a new teacher. Validates form data,
+ * creates the teacher as well as the associated user, and redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -16,20 +16,20 @@ require_once dirname(__FILE__).'/../../class/enseignant.class.php';
 require_once dirname(__FILE__).'/../../lib/myproject.lib.php';
 
 /**
- * Variable pour stocker les messages d'erreur
+ * Variable to store error messages
  * 
- * @var string Message d'erreur éventuel
+ * @var string Possible error message
  */
 $error='';
 
 /**
- * Processing of submission du formulaire
+ * Processing of form submission
  */
 if ($_SERVER['REQUEST_METHOD']==='POST') {
     try {
         /**
-         * Creates un nouvel enseignant avec les données du formulaire
-         * Les noms, prénoms et villes sont automatiquement capitalisés
+         * Creates a new teacher with form data
+         * Names, first names and cities are automatically capitalized
          * 
          * @var Enseignant
          */
@@ -43,15 +43,15 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
         ]);
         
         /**
-         * Creates l'enseignant et the associated user
+         * Creates the teacher and the associated user
          * 
          * @param string $username Username
-         * @param string $password Mot de passe (sera hashé en MD5)
+         * @param string $password Password (will be hashed in MD5)
          */
         $ens->create($_POST['username'], $_POST['password']);
         
         /**
-         * Redirige vers the list of teachers après création réussie
+         * Redirects to the list of teachers after successful creation
          */
         header("Location: index.php?element=enseignants&action=list");
         exit;

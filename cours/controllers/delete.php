@@ -2,8 +2,8 @@
 /**
  * Delete controller for a cours
  * 
- * Manages the deletion for a cours by its ID. Checks l'existence du cours,
- * le deletes then redirects vers the list des cours.
+ * Manages the deletion of a course by its ID. Checks l'existence of the course,
+ * le deletes then redirects to the list des cours.
  * 
  * @package TD3
  * @subpackage Controllers

@@ -1,9 +1,9 @@
 <?php
 /**
- * Controller forajout for a étudiant
+ * Add controller for a student
  * 
- * Manages the creation of a new étudiant. Validates form data,
- * creates l'étudiant ainsi que the associated user, and redirects to the list
+ * Manages the creation of a new student. Validates form data,
+ * creates the student as well as the associated user, and redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -18,20 +18,20 @@ require_once dirname(__FILE__) . '/../../class/etudiant.class.php';
 require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 
 $error = '';
-$old = []; // valeurs pour pré-remplir the form si erreur
+$old = []; // values to pre-fill the form on error
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieval et nettoyage minimal
+    // Retrieval and cleaning minimal
     $old = array_map(fn($v) => trim((string)$v), $_POST);
 
-    // Validation basique (ajoute ce que tu veux)
+    // Basic validation (add what you want)
     $required = ['numetu','firstname','lastname','diploma','year','username','password'];
     $missing = [];
     foreach ($required as $r) {
         if (empty($old[$r])) $missing[] = $r;
     }
     if ($missing) {
-        $error = 'Champs obligatoires manquants : ' . implode(', ', $missing);
+        $error = 'Missing required fields: ' . implode(', ', $missing);
     } else {
         try {
             $etu = new Etudiant([
@@ -48,17 +48,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'town'     => capitalizeName($old['town'] ?? null)
             ]);
 
-            // create => creates aussi l'utilisateur (transaction dans la classe)
+            // create => also creates the user (transaction in the class)
             $etu->create($old['username'], $old['password']);
 
             // Confirmation message in session then redirect
-            // Utilisation de la structure standardizede pour les messages
-            $_SESSION['mesgs']['confirm'][] = "Étudiant créé avec succès (numetu={$old['numetu']}).";
+            // Using the standardized structure for messages
+            $_SESSION['mesgs']['confirm'][] = "Student created successfully (numetu={$old['numetu']}).";
             header('Location: index.php?element=etudiants&action=list');
             exit;
         } catch (Exception $e) {
             // Propagate error to view
-            $error = 'Erreur lors de la création : ' . $e->getMessage();
+            $error = 'Error during creation: ' . $e->getMessage();
             $_SESSION['mesgs']['errors'][] = $error;
         }
     }

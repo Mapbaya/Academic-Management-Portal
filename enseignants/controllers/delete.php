@@ -2,8 +2,8 @@
 /**
  * Delete controller for a enseignant
  * 
- * Manages the deletion for a enseignant by its ID. Checks the existence de l'enseignant,
- * deletes l'enseignant et the associated user, then redirects vers the list
+ * Manages the deletion of a teacher by its ID. Checks the existence of the teacher,
+ * deletes the teacher and the associated user, then redirects to the list
  * with a confirmation or error message.
  * 
  * @package TD3
@@ -19,10 +19,10 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
-// Retrieval of identifier de l'enseignant à deletesr
+// Retrieval of the teacher identifier to delete
 $id = isset($_REQUEST['id']) ? (int)$_REQUEST['id'] : 0;
 
-// Verification of validity de l'ID
+// Verification of ID validity
 if ($id <= 0) {
     $_SESSION['mesgs']['errors'][] = 'Invalid identifier for deletion.';
     header("Location: index.php?element=enseignants&action=list");
@@ -30,11 +30,11 @@ if ($id <= 0) {
 }
 
 try {
-    // Retrieval of l'enseignant à deletesr
+    // Retrieval of the teacher to delete
     $ens = Enseignant::fetch($id);
 
     if ($ens) {
-        // Deletion of l'enseignant et de the associated user
+        // Deletion of the teacher and the associated user
         $ens->delete();
         $_SESSION['mesgs']['confirm'][] = 'Teacher deleted successfully.';
     } else {
@@ -42,7 +42,7 @@ try {
     }
 } catch (Exception $e) {
     // Error handling during deletion
-    $_SESSION['mesgs']['errors'][] = "Erreur during deletion : " . $e->getMessage();
+    $_SESSION['mesgs']['errors'][] = "Error during deletion: " . $e->getMessage();
 }
 
 // Redirect to list of teachers

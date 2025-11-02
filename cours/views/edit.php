@@ -1,7 +1,7 @@
 <h2>Modifier un cours</h2>
 
 <form method="post">
-    <label>Date du cours :</label>
+    <label>Date of the course :</label>
     <input type="date" name="date_cours" value="<?= htmlspecialchars($cours->date_cours) ?>" required><br>
 
     <label>ID Matière :</label>

@@ -3,7 +3,7 @@
  * List controller for cours
  * 
  * Manages the display of the cours with filtering capability.
- * Retrieves les critères de recherche from GET parameters and displays
+ * Retrieves search criteria from GET parameters and displays
  * les résultats correspondants avec les informations des matières et enseignants.
  * 
  * @package TD3
@@ -32,5 +32,5 @@ try {
     $cours = [];
     $matieres = [];
     $enseignants = [];
-    $_SESSION['mesgs']['errors'][] = "Erreur lors de la récupération des cours : " . $e->getMessage();
+    $_SESSION['mesgs']['errors'][] = "Error during retrieval of courses: " . $e->getMessage();
 }

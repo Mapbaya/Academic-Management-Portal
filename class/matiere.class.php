@@ -2,7 +2,7 @@
 /**
  * Class for managing l'entité Matière
  * 
- * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about matières.
+ * Cette classe gère les opérations CRUD (Create, Read, Update, Delete) about subjects.
  * Une matière est associée à un module et possède un numéro, un nom et un coefficient.
  * 
  * @package TD3
@@ -16,7 +16,7 @@ declare(strict_types=1);
 /**
  * Class Matiere
  * 
- * Représente une matière dans le système avec toutes ses propriétés
+ * Represents ae matière in the system with all its properties
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
@@ -25,31 +25,31 @@ declare(strict_types=1);
  * @version 1.0
  */
 class Matiere {
-    /** @var int Unique identifier de la matière in the database */
+    /** @var int Unique identifier of the subject in the database */
     public int $rowid;
     
-    /** @var string Numéro de la matière */
+    /** @var string Numéro of the subject */
     public string $num_matiere;
     
-    /** @var string Nom de la matière */
+    /** @var string Nom of the subject */
     public string $name;
     
-    /** @var float Coefficient de la matière */
+    /** @var float Coefficient of the subject */
     public float $coef;
     
-    /** @var int Identifiant du module associé (clé étrangère) */
+    /** @var int Identifiant of the module associé (clé étrangère) */
     public int $fk_module;
 
-    /** @var string|null Nom du module associé (for display) */
+    /** @var string|null Nom of the module associé (for display) */
     public ?string $module_name = null;
 
     /**
      * Constructeur de la classe Matiere
      * 
      * Initialise un objet Matiere avec les données fournies en paramètre.
-     * Seules les propriétés existantes sont assignées.
+     * Only existing properties are assigned.
      * 
-     * @param array<string, mixed> $data Tableau associatif contenant les données de la matière
+     * @param array<string, mixed> $data Tableau associatif contenant les données of the subject
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -91,9 +91,9 @@ class Matiere {
      * Retrieves une matière par son identifiant
      * 
      * Recherche une matière in the database en utilisant son rowid.
-     * Inclut également le nom du module associé.
+     * Inclut également le nom of the module associé.
      * 
-     * @param int $id Unique identifier de la matière
+     * @param int $id Unique identifier of the subject
      * @return Matiere|null La matière trouvée ou null si aucun résultat
      * @throws PDOException If a database error occurs
      * @author Kime Marwa
@@ -115,7 +115,7 @@ class Matiere {
     /**
      * Retrieves toutes les matières de la base de données
      * 
-     * Retourne une liste de toutes les matières avec le nom du module associé,
+     * Retourne une liste de toutes les matières avec le nom of the module associé,
      * triées par nom alphabétique.
      * 
      * @return array<Matiere> Array of objects Matiere
@@ -172,9 +172,9 @@ class Matiere {
     }
 
     /**
-     * Met à jour les informations de la matière in the database
+     * Met à jour les informations of the subject in the database
      * 
-     * Met à jour toutes les propriétés de la matière. La matière doit avoir un rowid valide.
+     * Updates all properties of the subject. The subject must have a valid rowid.
      * 
      * @return void
      * @throws PDOException If a database error occurs

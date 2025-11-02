@@ -1,10 +1,10 @@
 <?php
 /**
- * Controller forajout for a module
+ * Add controller for a module
  * 
- * Manages the creation for a nouveau module. Validates form data,
- * creates le module then redirects vers the list avec un message de confirmation
- * ou d'erreur.
+ * Manages the creation of a new module. Validates form data,
+ * creates the module then redirects to the list with a confirmation
+ * or error message.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -15,9 +15,9 @@
 require_once '../../class/module.class.php';
 
 /**
- * Variable pour stocker les messages d'erreur
+ * Variable to store error messages
  * 
- * @var string Message d'erreur éventuel
+ * @var string Possible error message
  */
 $error = '';
 
@@ -36,5 +36,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Inclure la vue
+// Include the view
 include dirname(__FILE__).'/../views/add.php';

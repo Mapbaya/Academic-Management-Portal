@@ -6,11 +6,11 @@
 
 <form method="post" class="w3-container w3-card w3-padding w3-margin-top">
     <div class="w3-section">
-        <label>Numéro du module :</label>
+        <label>Numéro of the module :</label>
         <input type="text" name="num_module" class="w3-input w3-border" required>
     </div>
     <div class="w3-section">
-        <label>Nom du module :</label>
+        <label>Nom of the module :</label>
         <input type="text" name="name" class="w3-input w3-border" required>
     </div>
     <div class="w3-section">

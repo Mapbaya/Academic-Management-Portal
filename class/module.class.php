@@ -16,7 +16,7 @@ declare(strict_types=1);
 /**
  * Class Module
  * 
- * Représente un module dans le système avec toutes ses propriétés
+ * Represents a module in the system with all its properties
  * et méthodes pour interagir avec la base de données.
  * 
  * @package TD3
@@ -25,25 +25,25 @@ declare(strict_types=1);
  * @version 1.0
  */
 class Module {
-    /** @var int Unique identifier du module in the database */
+    /** @var int Unique identifier of the module in the database */
     public int $rowid;
     
-    /** @var string Numéro du module */
+    /** @var string Numéro of the module */
     public string $num_module;
     
-    /** @var string Nom du module */
+    /** @var string Nom of the module */
     public string $name;
     
-    /** @var float Coefficient du module */
+    /** @var float Coefficient of the module */
     public float $coef;
 
     /**
      * Constructeur de la classe Module
      * 
      * Initialise un objet Module avec les données fournies en paramètre.
-     * Seules les propriétés existantes sont assignées.
+     * Only existing properties are assigned.
      * 
-     * @param array<string, mixed> $data Tableau associatif contenant les données du module
+     * @param array<string, mixed> $data Tableau associatif contenant les données of the module
      * @author Kime Marwa
      * @since November 2, 2025
      */
@@ -81,9 +81,9 @@ class Module {
     }
 
     /**
-     * Met à jour les informations du module in the database
+     * Met à jour les informations of the module in the database
      * 
-     * Met à jour toutes les propriétés du module. Le module doit avoir un rowid valide.
+     * Updates all properties of the module. The module must have a valid rowid.
      * 
      * @return void
      * @throws PDOException If a database error occurs
@@ -128,7 +128,7 @@ class Module {
      * 
      * Recherche un module in the database en utilisant son rowid.
      * 
-     * @param int $id Unique identifier du module
+     * @param int $id Unique identifier of the module
      * @return Module|null Le module trouvé ou null si aucun résultat
      * @throws PDOException If a database error occurs
      * @author Kime Marwa

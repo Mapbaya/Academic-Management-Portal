@@ -2,7 +2,7 @@
 /**
  * List controller for matières
  * 
- * Manages the display of the list de toutes les matières. Retrieves toutes les matières
+ * Manages the display of the list de toutes les subjects. Retrieves toutes les matières
  * from the database avec les informations des modules associés et les passe
  * à la vue for display.
  * 

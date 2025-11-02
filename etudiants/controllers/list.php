@@ -1,9 +1,9 @@
 <?php
 /**
- * List controller for étudiants
+ * List controller for students
  * 
- * Manages the display of the étudiants with filtering capability.
- * Retrieves les critères de recherche from GET parameters and displays
+ * Manages the display of students with filtering capability.
+ * Retrieves search criteria from GET parameters and displays
  * the corresponding results.
  * 
  * @package TD3
@@ -21,5 +21,5 @@ if (!empty($_GET['firstname'])) $criteria['firstname'] = $_GET['firstname'];
 if (!empty($_GET['diploma']))   $criteria['diploma'] = $_GET['diploma'];
 if (!empty($_GET['year']))      $criteria['year'] = $_GET['year'];
 
-// Retrieval ofs étudiants
+// Retrieval of students
 $etudiants = !empty($criteria) ? Etudiant::find($criteria) : Etudiant::fetchAll();

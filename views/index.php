@@ -29,7 +29,7 @@ declare(strict_types=1);
                     <h3>Étudiants</h3>
                 </div>
                 <div class="carte-face carte-arriere">
-                    <p>Voir, ajouter et modifier les étudiants.</p>
+                    <p>View, add and modify students.</p>
                     <a href="index.php?element=etudiants&action=index" class="bouton-acces">Accéder</a>
                 </div>
             </div>
@@ -43,7 +43,7 @@ declare(strict_types=1);
                     <h3>Enseignants</h3>
                 </div>
                 <div class="carte-face carte-arriere">
-                    <p>Voir, ajouter et modifier les enseignants.</p>
+                    <p>View, add and modify teachers.</p>
                     <a href="index.php?element=enseignants&action=index" class="bouton-acces">Accéder</a>
                 </div>
             </div>
@@ -57,7 +57,7 @@ declare(strict_types=1);
                     <h3>Cours</h3>
                 </div>
                 <div class="carte-face carte-arriere">
-                    <p>Voir, ajouter et modifier les cours.</p>
+                    <p>View, add and modify courses.</p>
                     <a href="index.php?element=cours&action=index" class="bouton-acces">Accéder</a>
                 </div>
             </div>

@@ -5,9 +5,9 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
 
 <form method="post" class="w3-container w3-card w3-padding w3-margin-top">
 
-    <!-- Date du cours -->
+    <!-- Date of the course -->
     <div class="w3-section">
-        <label>Date du cours :</label>
+        <label>Date of the course :</label>
         <input type="date" name="date_cours" class="w3-input w3-border" value="<?= htmlspecialchars($cours->date_cours ?? '') ?>" required>
     </div>
 
@@ -24,7 +24,7 @@ require_once dirname(__FILE__) . '/../../lib/myproject.lib.php';
         </select>
 
         <p style="margin:0.5em 0;">Ou createsr une nouvelle matière :</p>
-        <input type="text" name="new_matiere_name" class="w3-input w3-border" placeholder="Nom de la matière">
+        <input type="text" name="new_matiere_name" class="w3-input w3-border" placeholder="Nom of the subject">
         <input type="text" name="new_matiere_num" class="w3-input w3-border" placeholder="Numéro de matière">
         <input type="number" step="0.1" name="new_matiere_coef" class="w3-input w3-border" placeholder="Coefficient">
 

@@ -3,7 +3,7 @@
  * Controller forajout for a cours
  * 
  * Manages the creation for a nouveau cours. Permet également de createsr un nouveau module
- * ou une nouvelle matière if necessary lors de la création du cours.
+ * ou une nouvelle matière if necessary lors de la création of the course.
  * 
  * @package TD3
  * @subpackage Controllers
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $fk_matiere = $matiere->rowid;
         }
 
-        // --- Création du cours ---
+        // --- Création of the course ---
         $cours = new Cours([
             'date_cours' => $_POST['date_cours'] ?? null,
             'fk_matiere' => !empty($fk_matiere) ? (int)$fk_matiere : null,
