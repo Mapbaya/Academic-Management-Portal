@@ -1,5 +1,8 @@
 # TD3 - Academic Management System
 
+> **FR:** Portail web de gestion académique (étudiants, enseignants, cours, modules) en PHP avec architecture MVC.  
+> **EN:** Web application for managing students, teachers and courses developed in PHP with an MVC architecture.
+
 Web application for managing students, teachers and courses developed in PHP with an MVC architecture.
 
 ## 📋 Description
@@ -25,7 +28,8 @@ TD3 is a complete web application for managing an academic institution. It offer
 
 1. **Clone or download the project**
    ```bash
-   cd /srv/http/r301devweb/TD3
+   git clone https://github.com/Mapbaya/Academic-Management-Portal.git
+   cd Academic-Management-Portal
    ```
 
 2. **Install dependencies**
